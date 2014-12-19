@@ -14,7 +14,7 @@
         <em:id>{b3731343-bd49-4146-b6b2-48935ea627e1}</em:id>
         <em:name>Modify Response Headers</em:name>
         <em:optionsURL>chrome://modify-response-headers/content/config/config.xul</em:optionsURL>
-        <em:version>response/v0.7.1.1</em:version>
+        <em:version>response/v0.7.1.1/v1.01</em:version>
         <em:file>
             <Description about="urn:mozilla:extension:file:modifyheaders.jar">
                 <em:locale>locale/en-US/</em:locale>

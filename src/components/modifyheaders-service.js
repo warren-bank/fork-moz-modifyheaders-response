@@ -160,7 +160,7 @@ if (!ModifyHeaders.Service) {
 	            theFile = Components.classes["@mozilla.org/file/directory_service;1"].
 	                     getService(Components.interfaces.nsIProperties).
 	                     get("ProfD", Components.interfaces.nsIFile);
-	            theFile.append("modifyheaders.conf");
+	            theFile.append("modify-response-headers.conf");
 	        } catch (e) {
 	            Components.utils.reportError(e);
 	        }

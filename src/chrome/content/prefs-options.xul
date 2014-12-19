@@ -5,7 +5,7 @@
   
   <prefpane id="paneOptions" label="&modifyheaders.label.options;">
     <preferences>
-      <preference id="open-as-tab" name="modifyheaders.config.openNewTab" type="bool" />
+      <preference id="open-as-tab" name="modify-response-headers.config.openNewTab" type="bool" />
     </preferences>
 
     <groupbox>

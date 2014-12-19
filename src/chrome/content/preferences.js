@@ -24,7 +24,7 @@ ModifyHeaders.ActivateListener = (function (callback) {
 	var listener = {
 		register: function () {
 			var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-			this._branch = prefService.getBranch("modifyheaders.");
+			this._branch = prefService.getBranch("modify-response-headers.");
 			this._branch.QueryInterface(Components.interfaces.nsIPrefBranch2);
 			this._branch.addObserver("", this, false);
 		},

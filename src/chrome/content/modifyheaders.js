@@ -207,7 +207,7 @@ var ModifyHeaders = {
     this.headersTree.treeBoxObject.view = this.headerListTreeView;
     
     // Configure the preferences service
-    this.preferences = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("modifyheaders.");
+    this.preferences = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getBranch("modify-response-headers.");
     this.preferences.QueryInterface(Components.interfaces.nsIPrefBranch2);
     
     // Prepare the Header Names Autocomplete

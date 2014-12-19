@@ -324,15 +324,15 @@ if (!ModifyHeaders.PreferencesUtil) {
 	ModifyHeaders.PreferencesUtil = function () {
 		this.prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
 		this.prefService = this.prefService.getBranch("");
-		this.prefActive          = "modifyheaders.config.active";
-		this.prefHeaderCount     = "modifyheaders.headers.count";
-		this.prefHeaderAction    = "modifyheaders.headers.action";
-		this.prefHeaderEnabled   = "modifyheaders.headers.enabled";
-		this.prefHeaderName      = "modifyheaders.headers.name";
-		this.prefHeaderValue     = "modifyheaders.headers.value";
-		this.prefHeaderComment   = "modifyheaders.headers.comment";
-		this.prefMigratedHeaders = "modifyheaders.config.migrated";
-		this.prefOpenAsTab       = "modifyheaders.config.openNewTab";
+		this.prefActive          = "modify-response-headers.config.active";
+		this.prefHeaderCount     = "modify-response-headers.headers.count";
+		this.prefHeaderAction    = "modify-response-headers.headers.action";
+		this.prefHeaderEnabled   = "modify-response-headers.headers.enabled";
+		this.prefHeaderName      = "modify-response-headers.headers.name";
+		this.prefHeaderValue     = "modify-response-headers.headers.value";
+		this.prefHeaderComment   = "modify-response-headers.headers.comment";
+		this.prefMigratedHeaders = "modify-response-headers.config.migrated";
+		this.prefOpenAsTab       = "modify-response-headers.config.openNewTab";
 	};
 	
 	ModifyHeaders.PreferencesUtil.prototype = {

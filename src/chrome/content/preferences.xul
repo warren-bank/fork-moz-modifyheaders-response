@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/global.css"?>
-<?xml-stylesheet href="chrome://modifyheaders/content/modifyheaders.css" type="text/css"?>
+<?xml-stylesheet href="chrome://modify-response-headers/content/modifyheaders.css" type="text/css"?>
 
-<!DOCTYPE window SYSTEM "chrome://modifyheaders/locale/modifyheaders.dtd">
+<!DOCTYPE window SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
 
 <prefwindow id="modifyheaders-window"
     buttons="accept"
@@ -16,14 +16,14 @@
     ondrop="event.preventDefault()">
     
     <prefpane id="paneHeaders" label="Headers" selected="true" onpaneload="ModifyHeaders.start()"
-        src="chrome://modifyheaders/content/prefs-headers.xul" flex="1"/>
+        src="chrome://modify-response-headers/content/prefs-headers.xul" flex="1"/>
     <prefpane id="paneOptions" label="Options"
-        src="chrome://modifyheaders/content/prefs-options.xul" flex="1"/>
+        src="chrome://modify-response-headers/content/prefs-options.xul" flex="1"/>
     <prefpane id="paneAbout" label="About"
-        src="chrome://modifyheaders/content/prefs-about.xul" flex="1"/>
+        src="chrome://modify-response-headers/content/prefs-about.xul" flex="1"/>
     
     <stringbundleset>
-      <stringbundle id="modifyheadersStringResources" src="chrome://modifyheaders/locale/modifyheaders.properties"/>
+      <stringbundle id="modifyheadersStringResources" src="chrome://modify-response-headers/locale/modifyheaders.properties"/>
     </stringbundleset>
     <command id="addHeader" oncommand="ModifyHeaders.addHeader();"/>
     <command id="editHeader" oncommand="ModifyHeaders.editHeader();"/>
@@ -38,6 +38,6 @@
     <command id="openConfig" oncommand="ModifyHeaders.openConfig();"/>
     <command id="openHelp" oncommand="ModifyHeaders.openHelp()"/>
 
-    <script type="application/x-javascript" src="chrome://modifyheaders/content/modifyheaders.js"/>
-    <script type="application/x-javascript" src="chrome://modifyheaders/content/preferences.js"/>
+    <script type="application/x-javascript" src="chrome://modify-response-headers/content/modifyheaders.js"/>
+    <script type="application/x-javascript" src="chrome://modify-response-headers/content/preferences.js"/>
 </prefwindow>

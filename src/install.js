@@ -3,10 +3,10 @@ var contentFlag         = CONTENT | PROFILE_CHROME;
 var localeFlag          = LOCALE | PROFILE_CHROME;
 var skinFlag            = SKIN | PROFILE_CHROME;
 
-var displayName         = "Modify Headers";
+var displayName         = "Modify Response Headers";
 var version             = "@build.version@";
 
-var name                = "modifyheaders";
+var name                = "modify-response-headers";
 var jarName             = name + ".jar";
 //var jarFolder           = "content/" + name + "/"
 var jarFolder           = "content/"

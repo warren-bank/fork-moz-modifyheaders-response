@@ -1,5 +1,5 @@
 #include "nsISupports.idl"
-[scriptable, uuid(6b2f2fc7-a26c-4602-a08d-bd6d065a86e3)]
+[scriptable, uuid(f76b2347-aea1-483d-861b-06b392bfa38f)]
 interface mhIHeader : nsISupports
 {
 	attribute string  action;

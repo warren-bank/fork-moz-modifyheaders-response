@@ -18,7 +18,7 @@
 	
     <description>
         Modify Headers is an extension for the Mozilla Firefox web browser
-    	that allows a user to modify the HTTP request sent to a particular URL.
+    	that allows a user to modify the HTTP response received from a particular URL.
     </description>
 
 	<target name="info">

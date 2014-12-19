@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
-<?xml-stylesheet href="chrome://modifyheaders/content/config/config.css" type="text/css"?>
+<?xml-stylesheet href="chrome://modify-response-headers/content/config/config.css" type="text/css"?>
 
-<!DOCTYPE page SYSTEM "chrome://modifyheaders/locale/modifyheaders.dtd">
+<!DOCTYPE page SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
 
 <window onload="initConfig()"
 	title="&modifyheaders.config.title;"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/x-javascript" src="chrome://modifyheaders/content/modifyheaders.js" />
+	<script type="application/x-javascript" src="chrome://modify-response-headers/content/modifyheaders.js" />
     
     <groupbox>
         <caption label="&modifyheaders.options.general.label;"/>

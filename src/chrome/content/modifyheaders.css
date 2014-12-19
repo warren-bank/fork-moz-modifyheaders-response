@@ -30,17 +30,17 @@ treechildren::-moz-tree-checkbox(checked) {
 }
 
 prefwindow {
-  -moz-binding: url("chrome://modifyheaders/content/bindings/bindings.xml#prefwindow");
+  -moz-binding: url("chrome://modify-response-headers/content/bindings/bindings.xml#prefwindow");
 }
 
 radio[pane=paneHeaders] {
-  list-style-image:url("chrome://modifyheaders/content/icons/user.png");
+  list-style-image:url("chrome://modify-response-headers/content/icons/user.png");
 }
 radio[pane=paneOptions] {
-  list-style-image:url("chrome://modifyheaders/content/icons/tools.png");
+  list-style-image:url("chrome://modify-response-headers/content/icons/tools.png");
 }
 radio[pane=paneAbout] {
-  list-style-image:url("chrome://modifyheaders/content/icons/info.png");
+  list-style-image:url("chrome://modify-response-headers/content/icons/info.png");
 }
 radio#modifyheaders-help-button, radio#modifyheaders-start-button {
 	text-align: end;
@@ -49,15 +49,15 @@ radio#modifyheaders-help-button, radio#modifyheaders-start-button {
   -moz-box-align: center
 }
 radio#modifyheaders-help-button {
-  list-style-image:url("chrome://modifyheaders/content/icons/first-aid-kit.png");
+  list-style-image:url("chrome://modify-response-headers/content/icons/first-aid-kit.png");
 }
 radio#modifyheaders-start-button {
   font-weight: bold;
-  list-style-image:url("chrome://modifyheaders/content/icons/ModifyHeaders-grey-32.png");
+  list-style-image:url("chrome://modify-response-headers/content/icons/ModifyHeaders-grey-32.png");
   padding: 0 5px;
 }
 radio#modifyheaders-start-button.started {
-  list-style-image:url("chrome://modifyheaders/content/icons/ModifyHeaders-32.png");
+  list-style-image:url("chrome://modify-response-headers/content/icons/ModifyHeaders-32.png");
 }
 
 treechildren::-moz-tree-drop-feedback(dropAfter) {

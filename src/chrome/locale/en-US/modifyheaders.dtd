@@ -105,8 +105,8 @@
 
 <!-- URLs -->
 <!ENTITY modifyheaders.url.contribute "https://addons.mozilla.org/en-US/firefox/addon/modify-headers/">
-<!ENTITY modifyheaders.url.defects "http://modifyheaders.mozdev.org/bugs.html">
-<!ENTITY modifyheaders.url.defects.v "http://modifyheaders.mozdev.org/bugs.html?v=@build.version@">
+<!ENTITY modifyheaders.url.defects "http://modify-response-headers.mozdev.org/bugs.html">
+<!ENTITY modifyheaders.url.defects.v "http://modify-response-headers.mozdev.org/bugs.html?v=@build.version@">
 <!ENTITY modifyheaders.url.homepage "http://www.garethhunt.com/modifyheaders/">
 <!ENTITY modifyheaders.url.homepage.v "http://www.garethhunt.com/modifyheaders/?v=@build.version@">
 <!ENTITY modifyheaders.url.icons1 "http://cargocollective.com/davidferreira">

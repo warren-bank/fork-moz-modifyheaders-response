@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE page SYSTEM "chrome://modifyheaders/locale/modifyheaders.dtd">
+<!DOCTYPE page SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
 <overlay id="modifyheaders-about-overlay"
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   
@@ -10,7 +10,7 @@
       <caption>&modifyheaders.caption.about;</caption>
       <hbox>
         <vbox>
-          <image src="chrome://modifyheaders/content/icons/star.png" />
+          <image src="chrome://modify-response-headers/content/icons/star.png" />
         </vbox>
         <separator orient="vertical"/>
         <vbox>
@@ -22,7 +22,7 @@
       <separator flex="1" orient="horizontal"/>
       <hbox>
         <vbox>
-          <image src="chrome://modifyheaders/content/icons/globe.png" />
+          <image src="chrome://modify-response-headers/content/icons/globe.png" />
         </vbox>
         <separator orient="vertical"/>
         <vbox>
@@ -34,7 +34,7 @@
       <separator flex="1" orient="horizontal"/>
       <hbox>
         <vbox>
-          <image src="chrome://modifyheaders/content/icons/bug.png" />
+          <image src="chrome://modify-response-headers/content/icons/bug.png" />
         </vbox>
         <separator orient="vertical"/>
         <vbox>
@@ -46,7 +46,7 @@
       <separator flex="1" orient="horizontal"/>
       <hbox>
         <vbox>
-          <image src="chrome://modifyheaders/content/icons/twitter.png" />
+          <image src="chrome://modify-response-headers/content/icons/twitter.png" />
         </vbox>
         <separator orient="vertical"/>
         <vbox>
@@ -60,7 +60,7 @@
       <caption>&modifyheaders.caption.contribute;</caption>
       <hbox>
         <vbox>
-          <image src="chrome://modifyheaders/content/icons/thumbs-up.png" />
+          <image src="chrome://modify-response-headers/content/icons/thumbs-up.png" />
         </vbox>
         <separator orient="vertical"/>
         <vbox>
@@ -74,7 +74,7 @@
       <caption>&modifyheaders.caption.thankyou;</caption>
       <hbox>
         <vbox>
-          <image src="chrome://modifyheaders/content/icons/badge.png" />
+          <image src="chrome://modify-response-headers/content/icons/badge.png" />
         </vbox>
         <separator orient="vertical"/>
         <vbox>

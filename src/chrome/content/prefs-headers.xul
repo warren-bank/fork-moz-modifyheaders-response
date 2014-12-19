@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE window SYSTEM "chrome://modifyheaders/locale/modifyheaders.dtd">
+<!DOCTYPE window SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
 <overlay id="modifyheaders-headers-overlay"
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   
@@ -62,13 +62,13 @@
             <separator orient="horizontal" />
             <hbox>
               <vbox>
-                <image src="chrome://modifyheaders/content/enabled.gif" />
+                <image src="chrome://modify-response-headers/content/enabled.gif" />
               </vbox>
               <description flex="1" value="Enabled" />
             </hbox>
             <hbox>
               <vbox>
-                <image src="chrome://modifyheaders/content/disabled.gif" />
+                <image src="chrome://modify-response-headers/content/disabled.gif" />
               </vbox>
               <description value="Disabled" />
             </hbox>

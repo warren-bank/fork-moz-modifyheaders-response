@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
-<?xml-stylesheet href="chrome://modifyheaders/content/modifyheaders.css" type="text/css"?>
+<?xml-stylesheet href="chrome://modify-response-headers/content/modifyheaders.css" type="text/css"?>
 
-<!DOCTYPE window SYSTEM "chrome://modifyheaders/locale/modifyheaders.dtd">
+<!DOCTYPE window SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
 
 <wizard id="modifyheaders-import-wizard"
     title="&modifyheaders.title.import;"
@@ -12,8 +12,8 @@
     width="600"
     onload="ModifyHeaders.ExportImport.ImportWizard.init()">
     
-    <script type="application/x-javascript" src="chrome://modifyheaders/content/exportimport.js"/>
-    <script type="application/x-javascript" src="chrome://modifyheaders/content/import.js"/>
+    <script type="application/x-javascript" src="chrome://modify-response-headers/content/exportimport.js"/>
+    <script type="application/x-javascript" src="chrome://modify-response-headers/content/import.js"/>
 
     <wizardpage pageid="select-import-file" label="&modifyheaders.label.import.file;" onpageadvanced="return ModifyHeaders.ExportImport.ImportWizard.loadHeaders()">
         <description>&modifyheaders.description.import.selectfile;</description>

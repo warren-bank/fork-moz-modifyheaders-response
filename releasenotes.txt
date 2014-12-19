@@ -154,7 +154,7 @@ Release 0.5.1, 12 December 2005:
 --
 Release 0.5, 21 November 2005:
 
-* Implemented Modify Headers service so that requests can be modified when the extension window is closed.
+* Implemented Modify Headers service so that responses can be modified when the extension window is closed.
 * Added 'Always On' preference to the configuration window.
 * Updated help function to include release notes and roadmap
 * Provided compatibility with Firefox v1.5 rc 1

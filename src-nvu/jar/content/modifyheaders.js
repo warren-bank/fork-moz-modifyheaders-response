@@ -1,5 +1,5 @@
 // Constants for use within the ModifyHeaders class
-const modifyheadersService = Components.classes["@modifyheaders.mozdev.org/service;1"].getService(Components.interfaces.nsIModifyheaders);
+const modifyheadersService = Components.classes["@modifyheaders.mozdev.org/response/service;1"].getService(Components.interfaces.nsIModifyheaders);
 
 var oModifyHeaders;
 
@@ -11,7 +11,7 @@ var initialized = false;
 function openModifyHeaders() {
 
     // Open Modify Headers in a global window
-    window.open("chrome://modifyheaders/content/modifyheaders.xul", "modifyheaders", "chrome,centerscreen,resizable,scrollbars");
+    window.open("chrome://modify-response-headers/content/modifyheaders.xul", "modifyheaders", "chrome,centerscreen,resizable,scrollbars");
 }
 
 // Inits the Config tab
@@ -93,9 +93,9 @@ ModifyHeaders.prototype = {
     getImageSrc: function(rowIndex, column) {
     	if (column == "enabledcol" || column.id == "enabledcol") {
     		if (modifyheadersService.isHeaderEnabled(rowIndex)) {
-    			return "chrome://modifyheaders/content/enabled.gif";
+    			return "chrome://modify-response-headers/content/enabled.gif";
     		} else {
-    			return "chrome://modifyheaders/content/disabled.gif";
+    			return "chrome://modify-response-headers/content/disabled.gif";
     		}
     	}
     	

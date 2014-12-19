@@ -33,8 +33,8 @@ if (!ModifyHeaders.Header) {
 	
 	ModifyHeaders.Header.prototype = {
 		classDescription: "Modify Headers Header",
-		classID:          Components.ID("{6b2f2fc7-a26c-4602-a08d-bd6d065a86e3}"),
-		contractID:       "@modifyheaders.mozdev.org/header;1",
+		classID:          Components.ID("{f76b2347-aea1-483d-861b-06b392bfa38f}"),
+		contractID:       "@modifyheaders.mozdev.org/response/header;1",
 		
 		QueryInterface: XPCOMUtils.generateQI([Components.interfaces.mhIHeader]),
 
@@ -76,8 +76,8 @@ if (!ModifyHeaders.Service) {
 	
 	ModifyHeaders.Service.prototype = {
 		classDescription: "Modify Headers Service",
-		classID:          Components.ID("{feb80fc3-9e72-4fc5-bc72-986957ada6cc}"),
-		contractID:       "@modifyheaders.mozdev.org/service;1",
+		classID:          Components.ID("{1bb30833-e65f-492a-b8eb-9422b69716c7}"),
+		contractID:       "@modifyheaders.mozdev.org/response/service;1",
 		
 		QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIModifyheaders]),
 		
@@ -241,13 +241,13 @@ if (!ModifyHeaders.Proxy) {
 	Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 	
 	ModifyHeaders.Proxy = function () {
-		this.modifyheadersService = Components.classes["@modifyheaders.mozdev.org/service;1"].getService(Components.interfaces.nsIModifyheaders);
+		this.modifyheadersService = Components.classes["@modifyheaders.mozdev.org/response/service;1"].getService(Components.interfaces.nsIModifyheaders);
 	};
 	
 	ModifyHeaders.Proxy.prototype = {
 		classDescription: "Modify Headers Proxy",
-		classID:          Components.ID("{0eff9eeb-c51a-4f07-9823-27bc32fdae13}"),
-		contractID:       "@modifyheaders.mozdev.org/proxy;1",
+		classID:          Components.ID("{c5c58352-a576-4c0b-bb27-b4a860c6689f}"),
+		contractID:       "@modifyheaders.mozdev.org/response/proxy;1",
 		
 		QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIObserver]),
 		
@@ -258,7 +258,7 @@ if (!ModifyHeaders.Proxy) {
 					
 		// nsIObserver interface method
 		observe: function (subject, topic, data) {
-			if (topic == 'http-on-modify-request') {
+			if (['http-on-examine-response','http-on-examine-cached-response','http-on-examine-merged-response'].indexOf(topic) !== -1) {
 				subject.QueryInterface(Components.interfaces.nsIHttpChannel);
 				
 				if (this.modifyheadersService.active) {
@@ -284,10 +284,10 @@ if (!ModifyHeaders.Proxy) {
 							if (headerName.toLowerCase() == "cookie") {
 								headerAppend = false;
 								if (headers[i].action == "Add") {
-									// Throws failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannel.getRequestHeader]
+									// Throws failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannel.getResponseHeader]
 									// if the Cookie is filtered before a new Cookie value is added
 									try {
-										var currentHeaderValue = subject.getRequestHeader(headerName);
+										var currentHeaderValue = subject.getResponseHeader(headerName);
 										headerValue = currentHeaderValue + ";" + headerValue;
 									} catch (err) {
 										// Continue after error. Commenting out so the JS console is not spammed 
@@ -296,11 +296,11 @@ if (!ModifyHeaders.Proxy) {
 								}
 							}
 							
-							subject.setRequestHeader(headerName, headerValue, headerAppend);
+							subject.setResponseHeader(headerName, headerValue, headerAppend);
 						}
 					}
 					// TODO Add an optional ModifyHeaders header so that users know the tool is active
-					// subject.setRequestHeader("x-modifyheaders", "version 0.4", true)
+					// subject.setResponseHeader("x-modifyheaders", "version 0.4", true)
 				}
 			} else if (topic == 'profile-after-change') {
 				if ("nsINetModuleMgr" in Components.interfaces) {
@@ -309,7 +309,9 @@ if (!ModifyHeaders.Proxy) {
 				} else {
 					// Should be a new version of  Mozilla (after september 15, 2003)
 					var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-					observerService.addObserver(this, "http-on-modify-request", false);
+					observerService.addObserver(this, "http-on-examine-response", false);
+					observerService.addObserver(this, "http-on-examine-cached-response", false);
+					observerService.addObserver(this, "http-on-examine-merged-response", false);
 				}
 			} else {
 				//dump("\nNo observable topic defined");

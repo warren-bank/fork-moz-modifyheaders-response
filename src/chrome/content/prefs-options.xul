@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE page SYSTEM "chrome://modifyheaders/locale/modifyheaders.dtd">
+<!DOCTYPE page SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
 <overlay id="modifyheaders-options-overlay"
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   

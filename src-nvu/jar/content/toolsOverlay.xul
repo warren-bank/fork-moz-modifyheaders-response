@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE overlay SYSTEM "chrome://modifyheaders/locale/modifyheaders.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
 
 <overlay id="modifyheadersToolsOverlay"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     
-    <script type="application/x-javascript" src="chrome://modifyheaders/content/modifyheaders.js"/>
+    <script type="application/x-javascript" src="chrome://modify-response-headers/content/modifyheaders.js"/>
 
 	<!-- Add a menu item to the 'tools' menu -->
 	<menupopup id="taskPopup" insertbefore="menu_preferences">

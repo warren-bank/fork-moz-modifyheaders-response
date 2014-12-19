@@ -120,8 +120,8 @@ if (typeof(ModifyHeaders.Autocomplete.Search) == "undefined") {
 		
 		// XPCOMUtils
 		classDescription: "Modify Headers Auto-complete",
-		classID:          Components.ID("{86e57f10-469a-11e0-9207-0800200c9a66}"),
-		contractID:       "@mozilla.org/autocomplete/search;1?name=modifyheaders-autocomplete",
+		classID:          Components.ID("{d5f398ce-f73b-4ccc-8601-edbeb4a4d8a9}"),
+		contractID:       "@mozilla.org/autocomplete/response/search;1?name=modifyheaders-autocomplete",
 		
 		QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIAutoCompleteSearch]),
 		

@@ -15,5 +15,5 @@ xpidl.exec=xpidl
 # Firefox properties
 build.mozilla.firefox.home=/Applications/Firefox.app/
 build.mozilla.firefox.extension.name=modifyheaders
-build.mozilla.firefox.extension.uuid={b749fc7c-e949-447f-926c-3f4eed6accfe}
+build.mozilla.firefox.extension.uuid={b3731343-bd49-4146-b6b2-48935ea627e1}
 build.mozilla.firefox.extension.home=${user.home}/Library/Application Support/Firefox/Profiles/addondev/extensions

@@ -22,17 +22,17 @@ var ModifyHeaders = {
     // TODO Determine if Modify Headers is already open and shift to its tab/window if appropriate
     if (this.modifyheadersService.openAsTab) {
       // Open modifyheaders in a new tab
-      gBrowser.selectedTab = gBrowser.addTab('chrome://modifyheaders/content/preferences-tab.xul');
+      gBrowser.selectedTab = gBrowser.addTab('chrome://modify-response-headers/content/preferences-tab.xul');
     } else if (!this.modifyheadersService.windowOpen) {
       // Open Modify Headers in a resizable dialog
-      this.mhWindow = window.openDialog("chrome://modifyheaders/content/preferences.xul", "modifyheaders", "chrome,all,dialog=no");
+      this.mhWindow = window.openDialog("chrome://modify-response-headers/content/preferences.xul", "modifyheaders", "chrome,all,dialog=no");
     } else {
       // The window is open, so shift focus to it
       this.mhWindow.focus();
     }
   },
     
-  modifyheadersService: Components.classes["@modifyheaders.mozdev.org/service;1"].getService(Components.interfaces.nsIModifyheaders),
+  modifyheadersService: Components.classes["@modifyheaders.mozdev.org/response/service;1"].getService(Components.interfaces.nsIModifyheaders),
   initialized: false,
   mhWindow: null,
   
@@ -101,9 +101,9 @@ var ModifyHeaders = {
     getImageSrc: function(rowIndex, column) {
       if (column == "enabledcol" || column.id == "enabledcol") {
         if (this.data[rowIndex].enabled) {
-          return "chrome://modifyheaders/content/enabled.gif";
+          return "chrome://modify-response-headers/content/enabled.gif";
         } else {
-          return "chrome://modifyheaders/content/disabled.gif";
+          return "chrome://modify-response-headers/content/disabled.gif";
         }
       }
       return null;
@@ -152,11 +152,11 @@ var ModifyHeaders = {
     if (this.modifyheadersService.active) {
         startToolbarButton.hidden = true;
         stopToolbarButton.hidden = false;
-        addonToolbarButton.image = "chrome://modifyheaders/content/icons/ModifyHeaders-16.png";
+        addonToolbarButton.image = "chrome://modify-response-headers/content/icons/ModifyHeaders-16.png";
     } else {
         startToolbarButton.hidden = false;
         stopToolbarButton.hidden = true;
-        addonToolbarButton.image = "chrome://modifyheaders/content/icons/ModifyHeaders-grey-16.png";
+        addonToolbarButton.image = "chrome://modify-response-headers/content/icons/ModifyHeaders-grey-16.png";
     }
   },
     

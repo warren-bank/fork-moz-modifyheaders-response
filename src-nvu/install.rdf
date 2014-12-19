@@ -4,15 +4,16 @@
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
     <Description about="urn:mozilla:install-manifest">
-        <em:aboutURL>chrome://modifyheaders/content/about/about.xul</em:aboutURL>
+        <em:aboutURL>chrome://modify-response-headers/content/about/about.xul</em:aboutURL>
         <em:creator>Gareth Hunt</em:creator>
-        <em:description>Add, modify and filter http request headers</em:description>
+        <em:contributor>Warren Bank; https://github.com/warren-bank/modifyheaders</em:contributor>
+        <em:description>Add, modify and filter http response headers</em:description>
         <em:homepageURL>http://www.garethhunt.com/</em:homepageURL>
-        <!-- <em:iconURL>chrome://modifyheaders/content/logo.gif</em:iconURL> -->
+        <!-- <em:iconURL>chrome://modify-response-headers/content/logo.gif</em:iconURL> -->
         <em:iconURL></em:iconURL>
-        <em:id>{b749fc7c-e949-447f-926c-3f4eed6accfe}</em:id>
-        <em:name>Modify Headers</em:name>
-        <em:optionsURL>chrome://modifyheaders/content/config/config.xul</em:optionsURL>
+        <em:id>{b3731343-bd49-4146-b6b2-48935ea627e1}</em:id>
+        <em:name>Modify Response Headers</em:name>
+        <em:optionsURL>chrome://modify-response-headers/content/config/config.xul</em:optionsURL>
         <em:version>@build.version@</em:version>
         <em:file>
             <Description about="urn:mozilla:extension:file:modifyheaders.jar">

@@ -2,7 +2,7 @@
 
 interface mhIHeader;
 
-[scriptable, uuid(feb80fc3-9e72-4fc5-bc72-986957ada6cc)]
+[scriptable, uuid(1bb30833-e65f-492a-b8eb-9422b69716c7)]
 interface nsIModifyheaders : nsISupports
 {
     attribute unsigned long count;

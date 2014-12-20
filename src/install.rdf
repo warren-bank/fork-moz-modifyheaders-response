@@ -14,7 +14,7 @@
         <em:name>Modify Response Headers</em:name>
         <em:optionsURL>chrome://modify-response-headers/content/preferences.xul</em:optionsURL>
         <em:type>2</em:type>
-        <em:version>response/v0.7.1.1/v1.03</em:version>
+        <em:version>v0.7.1.1_response_v1.04</em:version>
         
         <!-- Firefox 4.0 - 9.0 -->
         <em:targetApplication>

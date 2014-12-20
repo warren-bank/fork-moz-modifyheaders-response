@@ -5,16 +5,16 @@
 
     <Description about="urn:mozilla:install-manifest">
         <em:aboutURL>chrome://modify-response-headers/content/about/about.xul</em:aboutURL>
-        <em:creator>Gareth Hunt</em:creator>
-        <em:contributor>Warren Bank; https://github.com/warren-bank/modifyheaders</em:contributor>
+        <em:creator>Warren Bank</em:creator>
+        <em:developer>Gareth Hunt; http://www.garethhunt.com/modifyheaders/</em:developer>
         <em:description>Add, modify and filter http response headers</em:description>
-        <em:homepageURL>http://www.garethhunt.com/</em:homepageURL>
+        <em:homepageURL>https://github.com/warren-bank/moz-modifyheaders-response/tree/response</em:homepageURL>
         <!-- <em:iconURL>chrome://modify-response-headers/content/logo.gif</em:iconURL> -->
         <em:iconURL></em:iconURL>
         <em:id>{b3731343-bd49-4146-b6b2-48935ea627e1}</em:id>
         <em:name>Modify Response Headers</em:name>
         <em:optionsURL>chrome://modify-response-headers/content/config/config.xul</em:optionsURL>
-        <em:version>response/v0.7.1.1/v1.02</em:version>
+        <em:version>response/v0.7.1.1/v1.03</em:version>
         <em:file>
             <Description about="urn:mozilla:extension:file:modifyheaders.jar">
                 <em:locale>locale/en-US/</em:locale>

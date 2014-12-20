@@ -1,0 +1,74 @@
+-------------------------------------------------------------------------------
+
+https://addons.mozilla.org/en-US/firefox/addon/modify-response-headers/
+https://addons.mozilla.org/en-US/firefox/addon/modify-response-headers/versions/v0.7.1.1_response_v1.04
+https://addons.mozilla.org/firefox/downloads/file/289268/modify_response_headers-v0.7.1.1_response_v1.04-fx.xpi
+
+https://github.com/warren-bank/moz-modifyheaders-response/releases/tag/response%2Fv0.7.1.1%2Fv1.04
+https://github.com/warren-bank/moz-modifyheaders-response/releases/download/response%2Fv0.7.1.1%2Fv1.04/modify-response-headers.xpi
+
+release date       : December 19, 2014
+size               : 64.1 kB
+compatibility      : Firefox 4.0 and later
+
+------------------------------------------------------------------------------- Basic Information:
+name               : Modify Response Headers
+add-on URL         : modify-response-headers
+summary            : Add, modify and filter HTTP response headers
+categories         : ["Privacy & Security","Web Development"]
+tags               : header, headers, http, http headers, http response
+------------------------------------------------------------------------------- Images:
+add-on icon        : ./src/chrome/content/icons/ModifyHeaders-48.png
+screenshots        :
+------------------------------------------------------------------------------- Add-on Details: description
+<strong>Summary</strong>
+
+<ul>
+  <li>Forked from <a href="https://github.com/garethhunt/modifyheaders/tree/v0.7.1.1">v0.7.1.1  of "Modify Headers"</a> by <a href="https://addons.mozilla.org/en-US/firefox/user/gareth-hunt/">Gareth Hunt</a><ul>
+    <li><a href="http://www.garethhunt.com/modifyheaders/">project home</a>
+    <li><a href="https://github.com/garethhunt/modifyheaders">github repo</a>
+    <li><a href="https://addons.mozilla.org/en-US/firefox/addon/modify-headers/">AMO</a></ul>
+  <li>The <a href="https://github.com/warren-bank/moz-modifyheaders-response/tree/response">"response" branch</a> has been modified from the original/official addon to achieve the following objectives:<ul>
+    <li>same UI
+    <li>modifies <strong>RESPONSE</strong> headers, rather than REQUEST
+    <li>the 2 addons can run side-by-side</ul></ul>
+
+<strong>Comments</strong>
+
+<ul>
+  <li>The <a href="https://github.com/warren-bank/moz-rewrite"><code>moz-rewrite</code></a> project currently contains 3 addon variations:<ul>
+    <li>Javascript (evaluated by <code>Cu.evalInSandbox()</code>):<ul>
+      <li>branch: <a href="https://github.com/warren-bank/moz-rewrite/tree/js/Cu.evalInSandbox/master"><code>js/Cu.evalInSandbox/master</code></a>
+      <li><a href="https://addons.mozilla.org/en-US/firefox/addon/moz-rewrite-js/">AMO</a></ul>
+    <li>Javascript (evaluated by <code>eval()</code>):<ul>
+      <li>branch: <a href="https://github.com/warren-bank/moz-rewrite/tree/js/eval/master"><code>js/eval/master</code></a>
+      <li>not hosted on AMO</ul>
+    <li>JSON (parsed by <code>JSON.parse()</code>):<ul>
+      <li>branch: <a href="https://github.com/warren-bank/moz-rewrite/tree/json/master"><code>json/master</code></a>
+      <li><a href="https://addons.mozilla.org/en-US/firefox/addon/moz-rewrite-json/">AMO</a></ul></ul>
+  <li>Any one of these variations makes the functionality of "Modify Headers" feel like a child's toy
+  <li>All variations require that the data be input/edited externally. The data is saved to text files, and must obey a format convention.
+  <li>Nevertheless, some individuals feel that the format of the input data is too complicated
+  <li>This class of user:<ul>
+    <li>isn't shy to ask for a tool that is simpler and more user-friendly
+    <li>is familiar with "Modify Headers" and comfortable using its UI
+    <li>wants a version of "Modify Headers" that can modify response HTTP headers</ul>
+  <li>I have no intention to add another branch to <a href="https://github.com/warren-bank/moz-rewrite"><code>moz-rewrite</code></a> for the purpose of including a UI to display/edit input data. To do so doesn't solve the problem of complexity.
+  <li>Authoring the <a href="https://github.com/warren-bank/moz-modifyheaders-response/tree/response">"response" branch</a> of this fork seemed to be the best all-around solution<ul>
+    <li><a href="https://github.com/warren-bank/moz-rewrite"><code>moz-rewrite</code></a> remains intact
+    <li><a href="https://addons.mozilla.org/en-US/firefox/addon/modify-response-headers/">"Modify Response Headers"</a> satisfies the needs for this class of user</ul></ul>
+------------------------------------------------------------------------------- Add-on Details: (continued)
+default locale     : English (US)
+homepage           : https://github.com/warren-bank/moz-modifyheaders-response/tree/response
+------------------------------------------------------------------------------- Support Information:
+email              :
+website            : https://github.com/warren-bank/moz-modifyheaders-response/issues
+------------------------------------------------------------------------------- Technical Details: developer comments
+------------------------------------------------------------------------------- Technical Details: (continued)
+required add-ons   :
+add-on flags       :
+view source?       : This add-on's source code is publicly viewable.
+public stats?      : No, this add-on's stats are not publicly viewable.
+UUID               : {b3731343-bd49-4146-b6b2-48935ea627e1}
+whiteboard         :
+-------------------------------------------------------------------------------

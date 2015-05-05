@@ -1,41 +1,41 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE overlay SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://modify-response-headers/locale/modifyresponseheaders.dtd">
 
-<overlay id="modifyheadersToolsOverlay"
+<overlay id="modifyresponseheadersToolsOverlay"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     
-  <script type="application/x-javascript" src="chrome://modify-response-headers/content/modifyheaders.js"/>
+  <script type="application/x-javascript" src="chrome://modify-response-headers/content/modifyresponseheaders.js"/>
   <script type="application/x-javascript" src="chrome://modify-response-headers/content/preferences.js"/>
 
 	<!-- Add a menu item to the 'tools' menu -->
 	<!-- Firefox / Flock -->
 	<menupopup id="menuWebDeveloperPopup">
-    	<menuitem class="menuitem-iconic" id="menu_WebDeveloperPopup_modifyheaders" image="chrome://modify-response-headers/content/icons/ModifyHeaders-16.png" insertbefore="devToolsEndSeparator" label="&modifyheaders.menuitem.tools.label;" oncommand="ModifyHeaders.open()" />
+    	<menuitem class="menuitem-iconic" id="menu_WebDeveloperPopup_modifyresponseheaders" image="chrome://modify-response-headers/content/icons/ModifyResponseHeaders-16.png" insertbefore="devToolsEndSeparator" label="&modifyresponseheaders.menuitem.tools.label;" oncommand="ModifyResponseHeaders.open()" />
 	</menupopup>
   
   <!-- Firefox 4 App Menu -->
   <menupopup id="appmenu_webDeveloper_popup">
-      <menuitem class="menuitem-iconic" id="appmenu_modifyheaders" image="chrome://modify-response-headers/content/icons/ModifyHeaders-16.png" insertafter="appmenu_pageSource" label="&modifyheaders.menuitem.tools.label;" oncommand="ModifyHeaders.open()" />
+      <menuitem class="menuitem-iconic" id="appmenu_modifyresponseheaders" image="chrome://modify-response-headers/content/icons/ModifyResponseHeaders-16.png" insertafter="appmenu_pageSource" label="&modifyresponseheaders.menuitem.tools.label;" oncommand="ModifyResponseHeaders.open()" />
   </menupopup>
 
   <!-- Seamonkey 2.0 -->
 	<menupopup id="toolsPopup">
-    	<menuitem id="toolsPopup_modifyheaders" label="&modifyheaders.menuitem.tools.label;" oncommand="ModifyHeaders.open()" />
+    	<menuitem id="toolsPopup_modifyresponseheaders" label="&modifyresponseheaders.menuitem.tools.label;" oncommand="ModifyResponseHeaders.open()" />
 	</menupopup>
   
   <!-- Addon toolbar -->
   <toolbarpalette id="BrowserToolbarPalette">
     <toolbarbutton class="toolbarbutton-1 chromeclass-toolbar-additional"
-                 id="modifyheaders-addonbar-button"
-                 image="chrome://modify-response-headers/content/icons/ModifyHeaders-16.png"
-                 tooltiptext="&modifyheaders.menuitem.tools.label;"
-                 label="&modifyheaders.menuitem.tools.label;"
+                 id="modifyresponseheaders-addonbar-button"
+                 image="chrome://modify-response-headers/content/icons/ModifyResponseHeaders-16.png"
+                 tooltiptext="&modifyresponseheaders.menuitem.tools.label;"
+                 label="&modifyresponseheaders.menuitem.tools.label;"
                  type="menu">
       <menupopup>
-        <menuitem label="Open ModifyHeaders" oncommand="ModifyHeaders.open()"/>
-        <menuitem id="modifyheaders-toolbar-button-start" label="&modifyheaders.button.start;" oncommand="ModifyHeaders.activate()"/>
-        <menuitem id="modifyheaders-toolbar-button-stop" label="&modifyheaders.button.stop;" oncommand="ModifyHeaders.activate()"/>
+        <menuitem label="Open ModifyResponseHeaders" oncommand="ModifyResponseHeaders.open()"/>
+        <menuitem id="modifyresponseheaders-toolbar-button-start" label="&modifyresponseheaders.button.start;" oncommand="ModifyResponseHeaders.activate()"/>
+        <menuitem id="modifyresponseheaders-toolbar-button-stop" label="&modifyresponseheaders.button.stop;" oncommand="ModifyResponseHeaders.activate()"/>
       </menupopup>
     </toolbarbutton>
   </toolbarpalette>
@@ -46,17 +46,17 @@
       function () {
         var addonBar = document.getElementById("addon-bar");
         if (addonBar) {
-          if (!document.getElementById("modifyheaders-addonbar-button")) {
+          if (!document.getElementById("modifyresponseheaders-addonbar-button")) {
             var addonBarCloseButton = document.getElementById("addonbar-closebutton");
-            addonBar.insertItem("modifyheaders-addonbar-button", addonBarCloseButton.nextSibling);
+            addonBar.insertItem("modifyresponseheaders-addonbar-button", addonBarCloseButton.nextSibling);
           }
         }
         
-        ModifyHeaders.toggleToolbarButton();
+        ModifyResponseHeaders.toggleToolbarButton();
         
-        var activateListener = new ModifyHeaders.ActivateListener(function (branch, data) {
+        var activateListener = new ModifyResponseHeaders.ActivateListener(function (branch, data) {
           if (data = "config.active") {
-            ModifyHeaders.toggleToolbarButton();
+            ModifyResponseHeaders.toggleToolbarButton();
           }
         });
         activateListener.register();

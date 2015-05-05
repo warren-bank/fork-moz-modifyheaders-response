@@ -11,7 +11,7 @@
     -->
 
   <RDF:Seq about="urn:mozilla:package:root">
-    <RDF:li resource="urn:mozilla:package:modifyheaders"/>
+    <RDF:li resource="urn:mozilla:package:modifyresponseheaders"/>
   </RDF:Seq>
   <!-- 
     Technically you can provide more than one package here, although it
@@ -19,19 +19,19 @@
     -->
 
   <!-- package information -->
-  <RDF:Description about="urn:mozilla:package:modifyheaders"
-        chrome:displayName="Modify headers"
+  <RDF:Description about="urn:mozilla:package:modifyresponseheaders"
+        chrome:displayName="Modify Response Headers"
         chrome:author="Gareth Hunt"
         chrome:authorURL="http://www.garethhunt.com/"
         chrome:settingsURL="chrome://modify-response-headers/content/preferences.xul"
         chrome:extension="true"
         chrome:description="Add, modify and filter http response headers."
-        chrome:name="modifyheaders">
+        chrome:name="modifyresponseheaders">
 
     <!-- Extra info for JSLib uninstall -->
     <chrome:uninstallInfo>
       <RDF:Seq>
-        <RDF:li>ComsD:modifyheaders-service.js</RDF:li>
+        <RDF:li>ComsD:modifyresponseheaders-service.js</RDF:li>
       </RDF:Seq>
     </chrome:uninstallInfo>
   </RDF:Description>

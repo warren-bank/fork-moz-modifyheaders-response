@@ -1,5 +1,5 @@
-if (typeof(ModifyHeaders) == "undefined") {
-	var ModifyHeaders = {};
+if (typeof(ModifyResponseHeaders) == "undefined") {
+	var ModifyResponseHeaders = {};
 }
 
 /**
@@ -8,14 +8,14 @@ if (typeof(ModifyHeaders) == "undefined") {
  *  
  * Thank you to Mozilla for providing a great example
  */
-if (typeof(ModifyHeaders.Autocomplete) == "undefined") {
-	ModifyHeaders.Autocomplete = {};
+if (typeof(ModifyResponseHeaders.Autocomplete) == "undefined") {
+	ModifyResponseHeaders.Autocomplete = {};
 }
 
-if (typeof(ModifyHeaders.Autocomplete.Result) == "undefined") {
+if (typeof(ModifyResponseHeaders.Autocomplete.Result) == "undefined") {
 	Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 	
-	ModifyHeaders.Autocomplete.Result = function (searchString, searchResult,
+	ModifyResponseHeaders.Autocomplete.Result = function (searchString, searchResult,
 			defaultIndex, errorDescription, results, comments) {
 		
 		this._searchString = searchString;
@@ -26,7 +26,7 @@ if (typeof(ModifyHeaders.Autocomplete.Result) == "undefined") {
 		this._comments = comments;
 	};
 	
-	ModifyHeaders.Autocomplete.Result.prototype = {
+	ModifyResponseHeaders.Autocomplete.Result.prototype = {
 		_searchString: "",
 		_searchResult: 0,
 		_defaultIndex: 0,
@@ -111,17 +111,17 @@ if (typeof(ModifyHeaders.Autocomplete.Result) == "undefined") {
 	};
 }
 
-if (typeof(ModifyHeaders.Autocomplete.Search) == "undefined") {
+if (typeof(ModifyResponseHeaders.Autocomplete.Search) == "undefined") {
 	Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 	
-	ModifyHeaders.Autocomplete.Search = function () {};
+	ModifyResponseHeaders.Autocomplete.Search = function () {};
 	
-	ModifyHeaders.Autocomplete.Search.prototype = {
+	ModifyResponseHeaders.Autocomplete.Search.prototype = {
 		
 		// XPCOMUtils
-		classDescription: "Modify Headers Auto-complete",
+		classDescription: "Modify Response Headers Auto-complete",
 		classID:          Components.ID("{d5f398ce-f73b-4ccc-8601-edbeb4a4d8a9}"),
-		contractID:       "@mozilla.org/autocomplete/response/search;1?name=modifyheaders-autocomplete",
+		contractID:       "@mozilla.org/autocomplete/search;1?name=modifyresponseheaders-autocomplete",
 		
 		QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIAutoCompleteSearch]),
 		
@@ -131,7 +131,7 @@ if (typeof(ModifyHeaders.Autocomplete.Search) == "undefined") {
 				if (aOuter != null)
 					throw Components.results.NS_ERROR_NO_AGGREGATION;
 				if (this.singleton == null)
-					this.singleton = new ModifyHeaders.Autocomplete.Search();
+					this.singleton = new ModifyResponseHeaders.Autocomplete.Search();
 				return this.singleton.QueryInterface(aIID);
 			}
 		},
@@ -164,7 +164,7 @@ if (typeof(ModifyHeaders.Autocomplete.Search) == "undefined") {
 							comments.push(null);
 					}
 				}
-				var newResult = new ModifyHeaders.Autocomplete.Result(searchString, Components.interfaces.nsIAutoCompleteResult.RESULT_SUCCESS, 0, "", results, comments);
+				var newResult = new ModifyResponseHeaders.Autocomplete.Result(searchString, Components.interfaces.nsIAutoCompleteResult.RESULT_SUCCESS, 0, "", results, comments);
 				listener.onSearchResult(this, newResult);
 			}
 		},
@@ -175,7 +175,7 @@ if (typeof(ModifyHeaders.Autocomplete.Search) == "undefined") {
 
 // Component initialization
 if (XPCOMUtils.generateNSGetFactory) {
-    var NSGetFactory = XPCOMUtils.generateNSGetFactory([ModifyHeaders.Autocomplete.Search]);
+    var NSGetFactory = XPCOMUtils.generateNSGetFactory([ModifyResponseHeaders.Autocomplete.Search]);
 } else {
-    var NSGetModule = XPCOMUtils.generateNSGetModule([ModifyHeaders.Autocomplete.Search]);
+    var NSGetModule = XPCOMUtils.generateNSGetModule([ModifyResponseHeaders.Autocomplete.Search]);
 }

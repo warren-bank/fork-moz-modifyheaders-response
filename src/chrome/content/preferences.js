@@ -1,26 +1,26 @@
 /**
  * @author Gareth Hunt
  */
-var ModifyHeaders = ModifyHeaders || {};
+var ModifyResponseHeaders = ModifyResponseHeaders || {};
 
-ModifyHeaders.Preferences = (function () {
+ModifyResponseHeaders.Preferences = (function () {
 	return {
 		openExportWizard: function () {
-			window.openDialog("chrome://modify-response-headers/content/exportwizard.xul", "modifyheadersExportWizard", "chrome,modal,titlebar,toolbar,resizeable,centerscreen,dialog=no", this);
+			window.openDialog("chrome://modify-response-headers/content/exportwizard.xul", "modifyresponseheadersExportWizard", "chrome,modal,titlebar,toolbar,resizeable,centerscreen,dialog=no", this);
 		},
 		openImportWizard: function () {
 			var retVals ={
 				importedHeaderCount: 0
 			}
-			var importDialog = window.openDialog("chrome://modify-response-headers/content/importwizard.xul", "modifyheadersImportWizard", "chrome,modal,titlebar,toolbar,resizeable,centerscreen,dialog=no", this, retVals);
-			ModifyHeaders.headerListTreeView.data = JSON.parse(ModifyHeaders.modifyheadersService.getHeaders());
-			ModifyHeaders.headerListTreeView.treeBox.rowCountChanged(0, retVals.importedHeaderCount);
-			ModifyHeaders.headerListTreeView.selection.select(ModifyHeaders.headerListTreeView.rowCount-1);
+			var importDialog = window.openDialog("chrome://modify-response-headers/content/importwizard.xul", "modifyresponseheadersImportWizard", "chrome,modal,titlebar,toolbar,resizeable,centerscreen,dialog=no", this, retVals);
+			ModifyResponseHeaders.headerListTreeView.data = JSON.parse(ModifyResponseHeaders.modifyresponseheadersService.getHeaders());
+			ModifyResponseHeaders.headerListTreeView.treeBox.rowCountChanged(0, retVals.importedHeaderCount);
+			ModifyResponseHeaders.headerListTreeView.selection.select(ModifyResponseHeaders.headerListTreeView.rowCount-1);
 		}
 	}	
 })();
 
-ModifyHeaders.ActivateListener = (function (callback) {
+ModifyResponseHeaders.ActivateListener = (function (callback) {
 	var listener = {
 		register: function () {
 			var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);

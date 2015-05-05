@@ -1,0 +1,115 @@
+<!-- <!ENTITY ""> -->
+
+<!-- Common -->
+<!-- <!ENTITY modifyresponseheaders.key "A"> -->
+<!ENTITY modifyresponseheaders.label "Header">
+<!ENTITY modifyresponseheaders.extension.name "Modify Response Headers">
+<!ENTITY modifyresponseheaders.extension.version "v0.7.1.1_response_v1.05">
+<!ENTITY modifyresponseheaders.author.name "Gareth Hunt">
+
+<!-- Buttons -->
+<!ENTITY modifyresponseheaders.button.browse "Browse...">
+<!ENTITY modifyresponseheaders.button.delete "Delete">
+<!ENTITY modifyresponseheaders.button.edit "Edit">
+<!ENTITY modifyresponseheaders.button.enable "Enable/Disable">
+<!ENTITY modifyresponseheaders.button.enableall "Enable All">
+<!ENTITY modifyresponseheaders.button.disableall "Disable All">
+<!ENTITY modifyresponseheaders.button.headers.add "Add">
+<!ENTITY modifyresponseheaders.button.headers.reset "Reset">
+<!ENTITY modifyresponseheaders.button.headers.save "Save">
+<!ENTITY modifyresponseheaders.button.export "Export Headers">
+<!ENTITY modifyresponseheaders.button.import "Import Headers">
+<!ENTITY modifyresponseheaders.button.movebottom "Move to Bottom">
+<!ENTITY modifyresponseheaders.button.movetop "Move to Top">
+<!ENTITY modifyresponseheaders.button.start "Start">
+<!ENTITY modifyresponseheaders.button.stop "Stop">
+
+<!-- Captions -->
+<!ENTITY modifyresponseheaders.caption.about "About Modify Response Headers">
+<!ENTITY modifyresponseheaders.caption.contribute "Contribute">
+<!ENTITY modifyresponseheaders.caption.options.general "General">
+<!ENTITY modifyresponseheaders.caption.options.export-import "Export/Import">
+<!ENTITY modifyresponseheaders.caption.thankyou "Thank You">
+
+<!-- Check box -->
+<!ENTITY modifyresponseheaders.checkbox.selectall "Select All">
+
+<!-- Description -->
+<!ENTITY modifyresponseheaders.description.export.complete "Your export of Modify Response Headers configuration is complete.">
+<!ENTITY modifyresponseheaders.description.export.confirm1 "You will export ">
+<!ENTITY modifyresponseheaders.description.export.confirm2 " headers to ">
+<!ENTITY modifyresponseheaders.description.export.confirm3 ".">
+<!ENTITY modifyresponseheaders.description.export.selectfile "Step 1: Select the location to save the exported configuration:">
+<!ENTITY modifyresponseheaders.description.export.selectheaders "Step 2: Select headers to include in the export">
+<!ENTITY modifyresponseheaders.description.import.complete "Your import of Modify Response Headers configuration is complete.">
+<!ENTITY modifyresponseheaders.description.import.confirm1 "You will import ">
+<!ENTITY modifyresponseheaders.description.import.confirm2 " headers from ">
+<!ENTITY modifyresponseheaders.description.import.confirm3 ".">
+<!ENTITY modifyresponseheaders.description.import.selectfile "Step 1: Select the location of the configuration file to import:">
+<!ENTITY modifyresponseheaders.description.import.selectheaders "Step 2: Select headers to be imported">
+
+<!-- Error -->
+<!ENTITY modifyresponseheaders.error.export.selectfile "There was an error exporting the configuration.  Please check the file location before trying again.">
+<!ENTITY modifyresponseheaders.error.import.selectfile "There was an error importing the configuration.  Please check the file format before trying again.">
+
+<!-- Labels -->
+<!ENTITY modifyresponseheaders.label.author "Author">
+<!ENTITY modifyresponseheaders.label.defects.description "If you have found a defect or have a feature or enhancement suggestion, please log it here:">
+<!ENTITY modifyresponseheaders.label.homepage "Home Page">
+<!ENTITY modifyresponseheaders.label.export.confirm "Confirm export selection">
+<!ENTITY modifyresponseheaders.label.export.file "Select location to save export">
+<!ENTITY modifyresponseheaders.label.export.selectheaders "Select headers">
+<!ENTITY modifyresponseheaders.label.import.confirm "Confirm import selection">
+<!ENTITY modifyresponseheaders.label.import.file "Select file to import">
+<!ENTITY modifyresponseheaders.label.import.selectheaders "Select headers">
+<!ENTITY modifyresponseheaders.label.version "Version">
+<!ENTITY modifyresponseheaders.label.contribute "Make a contribution">
+<!ENTITY modifyresponseheaders.label.contribute.description "Please consider making a contribution to help cover the development and support costs.">
+<!ENTITY modifyresponseheaders.label.headers "Headers">
+<!ENTITY modifyresponseheaders.label.icons1 "David Ferreira">
+<!ENTITY modifyresponseheaders.label.icons2 "wpzoom.com">
+<!ENTITY modifyresponseheaders.label.icons.description "Thank you to wpzoom and David Ferreira for the fantastic icons.">
+<!ENTITY modifyresponseheaders.label.logo "dodihanz profile on crowdSPRING">
+<!ENTITY modifyresponseheaders.label.logo.description "Thank you to dodihanz for the Modify Response Headers logo">
+<!ENTITY modifyresponseheaders.label.options "Options">
+<!ENTITY modifyresponseheaders.label.options.openintab "Open in Tab">
+<!ENTITY modifyresponseheaders.label.twitter.description "Follow me on twitter for occasional updates:">
+
+<!-- Menu Items -->
+<!ENTITY modifyresponseheaders.menuitem.tools.label "Modify Response Headers">
+<!ENTITY modifyresponseheaders.menuitem.action.add "Add">
+<!ENTITY modifyresponseheaders.menuitem.action.filter "Filter">
+<!ENTITY modifyresponseheaders.menuitem.action.modify "Modify">
+<!ENTITY modifyresponseheaders.menuitem.action.select "Select action">
+
+<!-- Place holder -->
+<!ENTITY modifyresponseheaders.placeholder.name "Header name (e.g. user-agent)">
+<!ENTITY modifyresponseheaders.placeholder.value "Header value">
+<!ENTITY modifyresponseheaders.placeholder.comment "Descriptive comment">
+
+<!-- Title -->
+<!ENTITY modifyresponseheaders.title.export "Modify Response Headers Export Wizard">
+<!ENTITY modifyresponseheaders.title.import "Modify Response Headers Import Wizard">
+
+<!-- Tooltips -->
+<!ENTITY modifyresponseheaders.tooltip.action "Select an action from: Add, Modify and Filter">
+<!ENTITY modifyresponseheaders.tooltip.name "Enter the header name">
+<!ENTITY modifyresponseheaders.tooltip.value "Enter the header value">
+<!ENTITY modifyresponseheaders.tooltip.comment "Enter a comment to describe this header">
+
+<!-- Treecol -->
+<!ENTITY modifyresponseheaders.treecol.action "Action">
+<!ENTITY modifyresponseheaders.treecol.name "Name">
+<!ENTITY modifyresponseheaders.treecol.value "Value">
+<!ENTITY modifyresponseheaders.treecol.comment "Comment">
+
+<!-- URLs -->
+<!ENTITY modifyresponseheaders.url.contribute "https://addons.mozilla.org/en-US/firefox/addon/modify-headers/">
+<!ENTITY modifyresponseheaders.url.defects "http://modify-response-headers.mozdev.org/bugs.html">
+<!ENTITY modifyresponseheaders.url.defects.v "http://modify-response-headers.mozdev.org/bugs.html?v=v0.7.1.1_response_v1.05">
+<!ENTITY modifyresponseheaders.url.homepage "http://www.garethhunt.com/modifyresponseheaders/">
+<!ENTITY modifyresponseheaders.url.homepage.v "http://www.garethhunt.com/modifyresponseheaders/?v=v0.7.1.1_response_v1.05">
+<!ENTITY modifyresponseheaders.url.icons1 "http://cargocollective.com/davidferreira">
+<!ENTITY modifyresponseheaders.url.icons2 "http://www.wpzoom.com/wpzoom/new-freebie-wpzoom-developer-icon-set-154-free-icons/">
+<!ENTITY modifyresponseheaders.url.logo "http://www.crowdspring.com/user/dodihanz/">
+<!ENTITY modifyresponseheaders.url.twitter "http://twitter.com/modifyresponseheaders">

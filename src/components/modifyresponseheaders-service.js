@@ -9,20 +9,20 @@
  * implied. See the License for the specific language governing
  * rights and limitations under the License.
  * 
- * The Original Code is the modifyheaders extension.
+ * The Original Code is the modifyresponseheaders extension.
  * 
  * The Initial Developer of the Original Code is Gareth Hunt
  * <gareth-hunt@rocketmail.com>. Portions created by the Initial Developer
  * are Copyright (C) 2005 the Initial Developer. All Rights Reserved.
  *
  */
-if (!ModifyHeaders)
-	var ModifyHeaders = {};
+if (!ModifyResponseHeaders)
+	var ModifyResponseHeaders = {};
 
-if (!ModifyHeaders.Header) {
+if (!ModifyResponseHeaders.Header) {
 	Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 	
-	ModifyHeaders.Header = function () {
+	ModifyResponseHeaders.Header = function () {
 		this.aAction   = "";
 		this.aName     = "";
 		this.aValue    = "";
@@ -31,10 +31,10 @@ if (!ModifyHeaders.Header) {
 		this.aSelected = true;
 	};
 	
-	ModifyHeaders.Header.prototype = {
-		classDescription: "Modify Headers Header",
+	ModifyResponseHeaders.Header.prototype = {
+		classDescription: "Modify Response Headers Header",
 		classID:          Components.ID("{f76b2347-aea1-483d-861b-06b392bfa38f}"),
-		contractID:       "@modifyheaders.mozdev.org/response/header;1",
+		contractID:       "@modifyresponseheaders.mozdev.org/header;1",
 		
 		QueryInterface: XPCOMUtils.generateQI([Components.interfaces.mhIHeader]),
 
@@ -62,24 +62,24 @@ if (!ModifyHeaders.Header) {
 	};
 }
 
-if (!ModifyHeaders.Service) {
+if (!ModifyResponseHeaders.Service) {
 	Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 	
-	ModifyHeaders.Service = function () {
+	ModifyResponseHeaders.Service = function () {
 		this.configuration = {
 			headers: []
 		};
-		this.preferencesUtil = new ModifyHeaders.PreferencesUtil();
+		this.preferencesUtil = new ModifyResponseHeaders.PreferencesUtil();
 		this.initiated = false;
 		this.winOpen = false;
 	};
 	
-	ModifyHeaders.Service.prototype = {
-		classDescription: "Modify Headers Service",
+	ModifyResponseHeaders.Service.prototype = {
+		classDescription: "Modify Response Headers Service",
 		classID:          Components.ID("{1bb30833-e65f-492a-b8eb-9422b69716c7}"),
-		contractID:       "@modifyheaders.mozdev.org/response/service;1",
+		contractID:       "@modifyresponseheaders.mozdev.org/service;1",
 		
-		QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIModifyheaders]),
+		QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIModifyResponseHeaders]),
 		
 		get count () {
 			if (!this.initiated) {
@@ -120,7 +120,7 @@ if (!ModifyHeaders.Service) {
 				getService(Components.interfaces.nsIProperties).
 				get("ProfD", Components.interfaces.nsIFile);
 				
-				// Get the modifyheaders configuration file
+				// Get the modifyresponseheaders configuration file
 				this.configFile = this.initConfigFile();
 				
 				// Load the configuration data
@@ -152,7 +152,7 @@ if (!ModifyHeaders.Service) {
 		},
 		
 		initConfigFile: function () {
-			dump("\nEntered ModifyHeaders.initConfigFile()");
+			dump("\nEntered ModifyResponseHeaders.initConfigFile()");
 	        // Get the configuration file
 			var theFile = null;
 			
@@ -166,7 +166,7 @@ if (!ModifyHeaders.Service) {
 	        }
 
 	        return theFile;
-	        dump("\nExiting ModifyHeaders.initConfigFile()");
+	        dump("\nExiting ModifyResponseHeaders.initConfigFile()");
 		},
 		
 		migrateHeaders: function () {
@@ -237,23 +237,23 @@ if (!ModifyHeaders.Service) {
 	};
 }
 
-if (!ModifyHeaders.Proxy) {
+if (!ModifyResponseHeaders.Proxy) {
 	Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 	
-	ModifyHeaders.Proxy = function () {
-		this.modifyheadersService = Components.classes["@modifyheaders.mozdev.org/response/service;1"].getService(Components.interfaces.nsIModifyheaders);
+	ModifyResponseHeaders.Proxy = function () {
+		this.modifyresponseheadersService = Components.classes["@modifyresponseheaders.mozdev.org/service;1"].getService(Components.interfaces.nsIModifyResponseHeaders);
 	};
 	
-	ModifyHeaders.Proxy.prototype = {
-		classDescription: "Modify Headers Proxy",
+	ModifyResponseHeaders.Proxy.prototype = {
+		classDescription: "Modify Response Headers Proxy",
 		classID:          Components.ID("{c5c58352-a576-4c0b-bb27-b4a860c6689f}"),
-		contractID:       "@modifyheaders.mozdev.org/response/proxy;1",
+		contractID:       "@modifyresponseheaders.mozdev.org/proxy;1",
 		
 		QueryInterface: XPCOMUtils.generateQI([Components.interfaces.nsIObserver]),
 		
 		_xpcom_categories: [{
 			category: "profile-after-change",
-			entry: "Modify Headers Proxy"
+			entry: "Modify Response Headers Proxy"
 		}],
 					
 		// nsIObserver interface method
@@ -261,9 +261,9 @@ if (!ModifyHeaders.Proxy) {
 			if (['http-on-examine-response','http-on-examine-cached-response','http-on-examine-merged-response'].indexOf(topic) !== -1) {
 				subject.QueryInterface(Components.interfaces.nsIHttpChannel);
 				
-				if (this.modifyheadersService.active) {
+				if (this.modifyresponseheadersService.active) {
 					// TODO Fetch only enabled headers
-					var headers = JSON.parse(this.modifyheadersService.getHeaders());
+					var headers = JSON.parse(this.modifyresponseheadersService.getHeaders());
 					
 					// TODO See if a foreach is better here
 					for (var i=0; i < headers.length; i++) {
@@ -299,8 +299,8 @@ if (!ModifyHeaders.Proxy) {
 							subject.setResponseHeader(headerName, headerValue, headerAppend);
 						}
 					}
-					// TODO Add an optional ModifyHeaders header so that users know the tool is active
-					// subject.setResponseHeader("x-modifyheaders", "version 0.4", true)
+					// TODO Add an optional ModifyResponseHeaders header so that users know the tool is active
+					// subject.setResponseHeader("x-modifyresponseheaders", "version 0.4", true)
 				}
 			} else if (topic == 'profile-after-change') {
 				if ("nsINetModuleMgr" in Components.interfaces) {
@@ -320,8 +320,8 @@ if (!ModifyHeaders.Proxy) {
 	};
 }
 
-if (!ModifyHeaders.PreferencesUtil) {
-	ModifyHeaders.PreferencesUtil = function () {
+if (!ModifyResponseHeaders.PreferencesUtil) {
+	ModifyResponseHeaders.PreferencesUtil = function () {
 		this.prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
 		this.prefService = this.prefService.getBranch("");
 		this.prefActive          = "modify-response-headers.config.active";
@@ -335,7 +335,7 @@ if (!ModifyHeaders.PreferencesUtil) {
 		this.prefOpenAsTab       = "modify-response-headers.config.openNewTab";
 	};
 	
-	ModifyHeaders.PreferencesUtil.prototype = {
+	ModifyResponseHeaders.PreferencesUtil.prototype = {
 		getPreference: function (type, name) {
 			var prefValue;
 			
@@ -384,7 +384,7 @@ if (!ModifyHeaders.PreferencesUtil) {
 
 /* Entry point - registers the component with the browser */
 if (XPCOMUtils.generateNSGetFactory) {
-    var NSGetFactory = XPCOMUtils.generateNSGetFactory([ModifyHeaders.Service,ModifyHeaders.Header,ModifyHeaders.Proxy]);
+    var NSGetFactory = XPCOMUtils.generateNSGetFactory([ModifyResponseHeaders.Service,ModifyResponseHeaders.Header,ModifyResponseHeaders.Proxy]);
 } else {
-    var NSGetModule = XPCOMUtils.generateNSGetModule([ModifyHeaders.Service,ModifyHeaders.Header,ModifyHeaders.Proxy]);
+    var NSGetModule = XPCOMUtils.generateNSGetModule([ModifyResponseHeaders.Service,ModifyResponseHeaders.Header,ModifyResponseHeaders.Proxy]);
 }

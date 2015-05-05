@@ -1,16 +1,16 @@
 /**
  * @author Gareth Hunt
  */
-var ModifyHeaders = {};
+var ModifyResponseHeaders = {};
 
-ModifyHeaders.ExportImport = (function () {
+ModifyResponseHeaders.ExportImport = (function () {
 	return {
 		wizard: undefined,
 		
 		init: function (action) {
-			this.modifyheadersService = Components.classes["@modifyheaders.mozdev.org/response/service;1"].getService(Components.interfaces.nsIModifyheaders);
+			this.modifyresponseheadersService = Components.classes["@modifyresponseheaders.mozdev.org/service;1"].getService(Components.interfaces.nsIModifyResponseHeaders);
 			
-			var headers = JSON.parse(this.modifyheadersService.getHeaders());
+			var headers = JSON.parse(this.modifyresponseheadersService.getHeaders());
 			
 			for (var i = 0; i < headers.length; i++) {
 				action.selectedRows[i] = false;

@@ -4,7 +4,7 @@ var localeFlag          = LOCALE | PROFILE_CHROME;
 var skinFlag            = SKIN | PROFILE_CHROME;
 
 var displayName         = "Modify Response Headers";
-var version             = "v0.7.1.1_response_v1.04";
+var version             = "v0.7.1.1_response_v1.05";
 
 var name                = "modify-response-headers";
 var jarName             = name + ".jar";
@@ -22,9 +22,9 @@ var existsInProfile     = File.exists(getFolder(folder, jarName));
 
 var locales             = new Array( "en-US" );
 var skins               = new Array(  ); // "modern"
-// var prefs               = new Array( "modifyheaders.js" );
+// var prefs               = new Array( "modifyresponseheaders.js" );
 var prefs               = new Array(  );
-var components          = new Array( "modifyheaders-service.js", "nsIModifyheaders.xpt", "mhIHeader.xpt" );
+var components          = new Array( "modifyresponseheaders-service.js", "nsIModifyResponseHeaders.xpt", "mhIHeader.xpt" );
 
 // If the extension exists in the application folder or it doesn't exist
 // in the profile folder and the user doesn't want it installed to the

@@ -9,12 +9,12 @@
         <em:description>Add, modify and filter HTTP response headers</em:description>
         <em:homepageURL>https://github.com/warren-bank/moz-modifyheaders-response/tree/response</em:homepageURL>
         <!-- <em:iconURL>chrome://modify-response-headers/content/logo.gif</em:iconURL> -->
-        <em:iconURL>chrome://modify-response-headers/content/icons/ModifyHeaders-48.png</em:iconURL>
+        <em:iconURL>chrome://modify-response-headers/content/icons/ModifyResponseHeaders-48.png</em:iconURL>
         <em:id>{b3731343-bd49-4146-b6b2-48935ea627e1}</em:id>
         <em:name>Modify Response Headers</em:name>
         <em:optionsURL>chrome://modify-response-headers/content/preferences.xul</em:optionsURL>
         <em:type>2</em:type>
-        <em:version>v0.7.1.1_response_v1.04</em:version>
+        <em:version>v0.7.1.1_response_v1.05</em:version>
         
         <!-- Firefox 4.0 - 9.0 -->
         <em:targetApplication>

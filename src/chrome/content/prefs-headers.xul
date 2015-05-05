@@ -1,45 +1,45 @@
 <?xml version="1.0"?>
-<!DOCTYPE window SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
-<overlay id="modifyheaders-headers-overlay"
+<!DOCTYPE window SYSTEM "chrome://modify-response-headers/locale/modifyresponseheaders.dtd">
+<overlay id="modifyresponseheaders-headers-overlay"
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   
-  <prefpane id="paneHeaders" label="&modifyheaders.label.headers;">
+  <prefpane id="paneHeaders" label="&modifyresponseheaders.label.headers;">
     <preferences/>
 
     <vbox flex="1">
       <vbox flex="1">
         <groupbox>
           <hbox>
-            <menulist id="action-menulist" tooltiptext="&modifyheaders.tooltip.action;">
-              <menupopup onpopuphidden="ModifyHeaders.actionSelected()">
-                <menuitem label="&modifyheaders.menuitem.action.select;" value="" />
-                <menuitem label="&modifyheaders.menuitem.action.add;" value="&modifyheaders.menuitem.action.add;" />
-                <menuitem label="&modifyheaders.menuitem.action.modify;" value="&modifyheaders.menuitem.action.modify;" />
-                <menuitem label="&modifyheaders.menuitem.action.filter;" value="&modifyheaders.menuitem.action.filter;" />
+            <menulist id="action-menulist" tooltiptext="&modifyresponseheaders.tooltip.action;">
+              <menupopup onpopuphidden="ModifyResponseHeaders.actionSelected()">
+                <menuitem label="&modifyresponseheaders.menuitem.action.select;" value="" />
+                <menuitem label="&modifyresponseheaders.menuitem.action.add;" value="&modifyresponseheaders.menuitem.action.add;" />
+                <menuitem label="&modifyresponseheaders.menuitem.action.modify;" value="&modifyresponseheaders.menuitem.action.modify;" />
+                <menuitem label="&modifyresponseheaders.menuitem.action.filter;" value="&modifyresponseheaders.menuitem.action.filter;" />
               </menupopup>
             </menulist>
-            <textbox id="headername-text-box" flex="1" disabled="true" placeholder="&modifyheaders.placeholder.name;" tooltiptext="&modifyheaders.tooltip.name;" type="autocomplete" autocompletesearch="modifyheaders-autocomplete" />
-            <textbox id="headervalue-text-box" flex="1" disabled="true" placeholder="&modifyheaders.placeholder.value;" tooltiptext="&modifyheaders.tooltip.value;" />
-            <textbox id="headercomment-text-box" flex="1" disabled="true" placeholder="&modifyheaders.placeholder.comment;" tooltiptext="&modifyheaders.tooltip.comment;" />
-            <button id="add-header-button" label="&modifyheaders.button.headers.add;" command="addHeader" flex="0" hidden="false" disabled="true" />
-            <button id="save-header-button" label="&modifyheaders.button.headers.save;" command="saveHeader" flex="0" hidden="true" />
-            <button id="reset-form-button" label="&modifyheaders.button.headers.reset;" command="resetHeaderForm" flex="0" hidden="false" />
+            <textbox id="headername-text-box" flex="1" disabled="true" placeholder="&modifyresponseheaders.placeholder.name;" tooltiptext="&modifyresponseheaders.tooltip.name;" type="autocomplete" autocompletesearch="modifyresponseheaders-autocomplete" />
+            <textbox id="headervalue-text-box" flex="1" disabled="true" placeholder="&modifyresponseheaders.placeholder.value;" tooltiptext="&modifyresponseheaders.tooltip.value;" />
+            <textbox id="headercomment-text-box" flex="1" disabled="true" placeholder="&modifyresponseheaders.placeholder.comment;" tooltiptext="&modifyresponseheaders.tooltip.comment;" />
+            <button id="add-header-button" label="&modifyresponseheaders.button.headers.add;" command="addHeader" flex="0" hidden="false" disabled="true" />
+            <button id="save-header-button" label="&modifyresponseheaders.button.headers.save;" command="saveHeader" flex="0" hidden="true" />
+            <button id="reset-form-button" label="&modifyresponseheaders.button.headers.reset;" command="resetHeaderForm" flex="0" hidden="false" />
           </hbox>
         </groupbox>
 
         <!-- List of headers that can be enabled/disabled -->
-        <hbox flex="1" xxonkeypress="ModifyHeaders.listKeyControl(event);">
+        <hbox flex="1" xxonkeypress="ModifyResponseHeaders.listKeyControl(event);">
           <vbox flex="1">
-            <tree id="modifyheaders-tree" seltype="single" hidecolumnpicker="true" flex="1"
-                ondblclick="ModifyHeaders.enableHeader();"
-                ondragstart="ModifyHeaders.headerListTreeView.dragStart(event)">
+            <tree id="modifyresponseheaders-tree" seltype="single" hidecolumnpicker="true" flex="1"
+                ondblclick="ModifyResponseHeaders.enableHeader();"
+                ondragstart="ModifyResponseHeaders.headerListTreeView.dragStart(event)">
               <treecols ondragstart="event.stopPropagation();">
-                <treecol id="actioncol" label="&modifyheaders.treecol.action;" fixed="true" ignoreincolumnpicker="true" />
-                <treecol id="namecol" label="&modifyheaders.treecol.name;" flex="1" persist="width" ignoreincolumnpicker="true" />
+                <treecol id="actioncol" label="&modifyresponseheaders.treecol.action;" fixed="true" ignoreincolumnpicker="true" />
+                <treecol id="namecol" label="&modifyresponseheaders.treecol.name;" flex="1" persist="width" ignoreincolumnpicker="true" />
                 <splitter class="tree-splitter" />
-                <treecol id="valuecol" label="&modifyheaders.treecol.value;" flex="1" persist="width" ignoreincolumnpicker="true" />
+                <treecol id="valuecol" label="&modifyresponseheaders.treecol.value;" flex="1" persist="width" ignoreincolumnpicker="true" />
                 <splitter class="tree-splitter" />
-                <treecol id="commentcol" label="&modifyheaders.treecol.comment;" flex="1" persist="width" ignoreincolumnpicker="true" />
+                <treecol id="commentcol" label="&modifyresponseheaders.treecol.comment;" flex="1" persist="width" ignoreincolumnpicker="true" />
                 <splitter class="tree-splitter" />
                 <treecol id="enabledcol" width="20" fixed="true" ignoreincolumnpicker="true" />
                 <!-- sbcol provides space for a scrollbar if one appears -->
@@ -50,15 +50,15 @@
           </vbox>
 
           <vbox>
-            <button label="&modifyheaders.button.edit;" command="editHeader" flex="0" />
-            <button label="&modifyheaders.button.delete;" command="deleteHeader" flex="0" />
+            <button label="&modifyresponseheaders.button.edit;" command="editHeader" flex="0" />
+            <button label="&modifyresponseheaders.button.delete;" command="deleteHeader" flex="0" />
             <separator orient="horizontal" />
-            <button label="&modifyheaders.button.movetop;" command="moveRowTop" />
-            <button label="&modifyheaders.button.movebottom;" command="moveRowBottom" />
+            <button label="&modifyresponseheaders.button.movetop;" command="moveRowTop" />
+            <button label="&modifyresponseheaders.button.movebottom;" command="moveRowBottom" />
             <separator orient="horizontal" />
-            <button label="&modifyheaders.button.enable;" command="enableHeader" flex="0" />
-            <button label="&modifyheaders.button.enableall;" command="enableAllHeaders" flex="0" />
-            <button label="&modifyheaders.button.disableall;" command="disableAllHeaders" flex="0" />
+            <button label="&modifyresponseheaders.button.enable;" command="enableHeader" flex="0" />
+            <button label="&modifyresponseheaders.button.enableall;" command="enableAllHeaders" flex="0" />
+            <button label="&modifyresponseheaders.button.disableall;" command="disableAllHeaders" flex="0" />
             <separator orient="horizontal" />
             <hbox>
               <vbox>

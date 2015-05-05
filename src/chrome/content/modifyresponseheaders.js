@@ -9,7 +9,7 @@
  * implied. See the License for the specific language governing
  * rights and limitations under the License.
  * 
- * The Original Code is the modifyheaders extension.
+ * The Original Code is the modifyresponseheaders extension.
  * 
  * The Initial Developer of the Original Code is Gareth Hunt
  * <gareth-hunt@rocketmail.com>. Portions created by the Initial Developer
@@ -17,22 +17,22 @@
  *
  */
 
-var ModifyHeaders = {
+var ModifyResponseHeaders = {
   open: function () {
-    // TODO Determine if Modify Headers is already open and shift to its tab/window if appropriate
-    if (this.modifyheadersService.openAsTab) {
-      // Open modifyheaders in a new tab
+    // TODO Determine if Modify Response Headers is already open and shift to its tab/window if appropriate
+    if (this.modifyresponseheadersService.openAsTab) {
+      // Open modifyresponseheaders in a new tab
       gBrowser.selectedTab = gBrowser.addTab('chrome://modify-response-headers/content/preferences-tab.xul');
-    } else if (!this.modifyheadersService.windowOpen) {
-      // Open Modify Headers in a resizable dialog
-      this.mhWindow = window.openDialog("chrome://modify-response-headers/content/preferences.xul", "modifyheaders", "chrome,all,dialog=no");
+    } else if (!this.modifyresponseheadersService.windowOpen) {
+      // Open Modify Response Headers in a resizable dialog
+      this.mhWindow = window.openDialog("chrome://modify-response-headers/content/preferences.xul", "modifyresponseheaders", "chrome,all,dialog=no");
     } else {
       // The window is open, so shift focus to it
       this.mhWindow.focus();
     }
   },
     
-  modifyheadersService: Components.classes["@modifyheaders.mozdev.org/response/service;1"].getService(Components.interfaces.nsIModifyheaders),
+  modifyresponseheadersService: Components.classes["@modifyresponseheaders.mozdev.org/service;1"].getService(Components.interfaces.nsIModifyResponseHeaders),
   initialized: false,
   mhWindow: null,
   
@@ -69,8 +69,8 @@ var ModifyHeaders = {
     
     dragStart: function (event) {
       // Ensure the scollbar or other tree elements are not selected
-      if (!(event.target.id == "modifyheaders-tree")) {
-          var index = ModifyHeaders.headerListTreeView.selection.currentIndex;
+      if (!(event.target.id == "modifyresponseheaders-tree")) {
+          var index = ModifyResponseHeaders.headerListTreeView.selection.currentIndex;
           if (index > -1) { 
             event.dataTransfer.setData("text/plain", index);
           }
@@ -80,7 +80,7 @@ var ModifyHeaders = {
     
     drop: function(targetRowID, orientation, dataTransfer) {
       var sourceRowID = dataTransfer.getData("text/plain");
-      ModifyHeaders.moveRow(sourceRowID, targetRowID, orientation);
+      ModifyResponseHeaders.moveRow(sourceRowID, targetRowID, orientation);
     },
     
     getCellProperties: function(row, columnID, properties) { /* do nothing */ },
@@ -129,40 +129,42 @@ var ModifyHeaders = {
   },  // End headerListTreeView
   
   activate: function () {
-    this.modifyheadersService.active = !this.modifyheadersService.active;
+    this.modifyresponseheadersService.active = !this.modifyresponseheadersService.active;
   },
   
   toggleStartButton: function () {
-    var startButton = document.getElementById("modifyheaders-start-button");
+    var startButton = document.getElementById("modifyresponseheaders-start-button");
+
+    if (!startButton){return;}
     
-    if (this.modifyheadersService.active) {
-      startButton.setAttribute("label", document.getElementById("modifyheadersStringResources").getString("modifyheaders.button.stop"));
+    if (this.modifyresponseheadersService.active) {
+      startButton.setAttribute("label", document.getElementById("modifyresponseheadersStringResources").getString("modifyresponseheaders.button.stop"));
       startButton.className = "started";
     } else {
-      startButton.setAttribute("label", document.getElementById("modifyheadersStringResources").getString("modifyheaders.button.start"));
+      startButton.setAttribute("label", document.getElementById("modifyresponseheadersStringResources").getString("modifyresponseheaders.button.start"));
       startButton.className = "";
     }
   },
   
   toggleToolbarButton: function () {
-    var startToolbarButton = document.getElementById("modifyheaders-toolbar-button-start");
-    var stopToolbarButton = document.getElementById("modifyheaders-toolbar-button-stop");
-    var addonToolbarButton = document.getElementById("modifyheaders-addonbar-button");
+    var startToolbarButton = document.getElementById("modifyresponseheaders-toolbar-button-start");
+    var stopToolbarButton = document.getElementById("modifyresponseheaders-toolbar-button-stop");
+    var addonToolbarButton = document.getElementById("modifyresponseheaders-addonbar-button");
     
-    if (this.modifyheadersService.active) {
+    if (this.modifyresponseheadersService.active) {
         startToolbarButton.hidden = true;
         stopToolbarButton.hidden = false;
-        addonToolbarButton.image = "chrome://modify-response-headers/content/icons/ModifyHeaders-16.png";
+        addonToolbarButton.image = "chrome://modify-response-headers/content/icons/ModifyResponseHeaders-16.png";
     } else {
         startToolbarButton.hidden = false;
         stopToolbarButton.hidden = true;
-        addonToolbarButton.image = "chrome://modify-response-headers/content/icons/ModifyHeaders-grey-16.png";
+        addonToolbarButton.image = "chrome://modify-response-headers/content/icons/ModifyResponseHeaders-grey-16.png";
     }
   },
     
   start: function() {
     // Initialize the form controls
-    this.headersTree = document.getElementById("modifyheaders-tree");
+    this.headersTree = document.getElementById("modifyresponseheaders-tree");
     this.actionMenuList = document.getElementById("action-menulist");
     this.nameTextbox = document.getElementById("headername-text-box");
     this.valueTextbox = document.getElementById("headervalue-text-box");
@@ -173,15 +175,15 @@ var ModifyHeaders = {
     // Add the start/stop radio button to the toolbar radiogroup
     // TODO Use an overlay or XBL
     var startStopRadio = document.createElement("radio");
-    startStopRadio.setAttribute("id", "modifyheaders-start-button");
-    startStopRadio.setAttribute("oncommand", "ModifyHeaders.activate(); return false;");
+    startStopRadio.setAttribute("id", "modifyresponseheaders-start-button");
+    startStopRadio.setAttribute("oncommand", "ModifyResponseHeaders.activate(); return false;");
     document.documentElement._selector.insertBefore(startStopRadio, document.documentElement._selector.firstChild);
     this.toggleStartButton();
     
     // Listen for when the 'active' preference changes
-    this.activateListener = new ModifyHeaders.ActivateListener(function (branch, data) {
+    this.activateListener = new ModifyResponseHeaders.ActivateListener(function (branch, data) {
       if (data = "config.active") {
-        ModifyHeaders.toggleStartButton();
+        ModifyResponseHeaders.toggleStartButton();
       }
     });
     this.activateListener.register();
@@ -189,9 +191,9 @@ var ModifyHeaders = {
     // Add help radio button to toolbar radiogroup
     // TODO Use an overlay or XBL
     var helpRadio = document.createElement("radio");
-    helpRadio.setAttribute("id", "modifyheaders-help-button");
-    helpRadio.setAttribute("label", document.getElementById("modifyheadersStringResources").getString("modifyheaders.button.help"));
-    helpRadio.setAttribute("oncommand", "ModifyHeaders.openHelp(); return false;");
+    helpRadio.setAttribute("id", "modifyresponseheaders-help-button");
+    helpRadio.setAttribute("label", document.getElementById("modifyresponseheadersStringResources").getString("modifyresponseheaders.button.help"));
+    helpRadio.setAttribute("oncommand", "ModifyResponseHeaders.openHelp(); return false;");
     
     var helpSeparator = document.createElement("separator");
     helpSeparator.setAttribute("class", "thin");
@@ -201,7 +203,7 @@ var ModifyHeaders = {
     document.documentElement._selector.appendChild(helpRadio);
     
     // Set the data for the treeView
-    this.headerListTreeView.data = JSON.parse(this.modifyheadersService.getHeaders());
+    this.headerListTreeView.data = JSON.parse(this.modifyresponseheadersService.getHeaders());
     
     // Set this view for the treeBoxObject
     this.headersTree.treeBoxObject.view = this.headerListTreeView;
@@ -221,8 +223,8 @@ var ModifyHeaders = {
   },
   
   toggleWindow: function () {
-    document.getElementById("modifyheaders-window").lastSelected = "paneHeaders";
-    this.modifyheadersService.windowOpen = !this.modifyheadersService.windowOpen;
+    document.getElementById("modifyresponseheaders-window").lastSelected = "paneHeaders";
+    this.modifyresponseheadersService.windowOpen = !this.modifyresponseheadersService.windowOpen;
   },
   
   refresh: function(index, count) {
@@ -323,7 +325,7 @@ var ModifyHeaders = {
   
   storeHeaders: function () {
 	var data = JSON.stringify(this.headerListTreeView.data);
-	this.modifyheadersService.saveHeaders(data);
+	this.modifyresponseheadersService.saveHeaders(data);
 	this.prepareHeaderNamesList();
   },
   
@@ -488,6 +490,6 @@ var ModifyHeaders = {
   openHelp: function() {
     var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]. getService(Components.interfaces.nsIWindowMediator);
     var mrw = wm.getMostRecentWindow("navigator:browser");
-    mrw.gBrowser.selectedTab = mrw.gBrowser.addTab(document.getElementById("modifyheadersStringResources").getString("modifyheaders.url.help"));
+    mrw.gBrowser.selectedTab = mrw.gBrowser.addTab(document.getElementById("modifyresponseheadersStringResources").getString("modifyresponseheaders.url.help"));
   }
 };

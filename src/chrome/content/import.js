@@ -1,7 +1,7 @@
 /**
  * @author gareth
  */
-ModifyHeaders.ExportImport.ImportWizard = (function () {
+ModifyResponseHeaders.ExportImport.ImportWizard = (function () {
 	return {
 		initiated: false,
 		importedConfig: [],
@@ -9,9 +9,9 @@ ModifyHeaders.ExportImport.ImportWizard = (function () {
 		
 		init: function () {
 			if (!this.initiated) {
-				ModifyHeaders.ExportImport.init(this);
-				ModifyHeaders.ExportImport.wizard = document.getElementById("modifyheaders-import-wizard");
-				ModifyHeaders.ExportImport.wizard.canAdvance = false;
+				ModifyResponseHeaders.ExportImport.init(this);
+				ModifyResponseHeaders.ExportImport.wizard = document.getElementById("modifyresponseheaders-import-wizard");
+				ModifyResponseHeaders.ExportImport.wizard.canAdvance = false;
 				this.retVal = window.arguments[1];
 				this.initiated = true;
 			}
@@ -20,7 +20,7 @@ ModifyHeaders.ExportImport.ImportWizard = (function () {
 		openFileBrowser: function () {
 	        var fpicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
 		    var mode = fpicker.modeOpen;
-	        var fpHeadStr = "Select location from which to load Modify Headers configuration";
+	        var fpHeadStr = "Select location from which to load Modify Response Headers configuration";
 		    
 	        fpicker.init(window, fpHeadStr, mode);
 		    
@@ -28,7 +28,7 @@ ModifyHeaders.ExportImport.ImportWizard = (function () {
 	        if (showResult == fpicker.returnOK) {
 	        	this.theFile = fpicker.file;
 		        document.getElementById("file-path").value = this.theFile.path;
-		        ModifyHeaders.ExportImport.wizard.canAdvance = true;
+		        ModifyResponseHeaders.ExportImport.wizard.canAdvance = true;
 	        }
 		},
 		
@@ -56,18 +56,18 @@ ModifyHeaders.ExportImport.ImportWizard = (function () {
 	                
 	                // If the file is verified, the wizard can advance
 	                if (this.importedConfig == null) {
-	                	ModifyHeaders.ExportImport.wizard.canAdvance = false;
+	                	ModifyResponseHeaders.ExportImport.wizard.canAdvance = false;
 	                	document.getElementById("error").hidden = false;
 	                	cancel = true;
 	                } else {
-	                	ModifyHeaders.ExportImport.wizard.canAdvance = true;
+	                	ModifyResponseHeaders.ExportImport.wizard.canAdvance = true;
 	                	document.getElementById("error").hidden = true;
 	                }
 	            } catch(e) {
 	                Components.utils.reportError(e);
 	            }
 	        } else {
-	        	ModifyHeaders.ExportImport.wizard.canAdvance = false;
+	        	ModifyResponseHeaders.ExportImport.wizard.canAdvance = false;
                	document.getElementById("error").hidden = false; // TODO Display a different error message
 	            Components.utils.reportError("Error: File does not exist");
 	            cancel = true;
@@ -100,7 +100,7 @@ ModifyHeaders.ExportImport.ImportWizard = (function () {
 				
 				startElement: function(uri, localName, qName, attributes) {
 					switch (localName) {
-						case "modifyheaders":
+						case "modifyresponseheaders":
 							config = new Array();
 							break;
 						case "header":
@@ -119,7 +119,7 @@ ModifyHeaders.ExportImport.ImportWizard = (function () {
 				
 				endElement: function(uri, localName, qName) {
 					switch (localName) {
-						case "modifyheaders":
+						case "modifyresponseheaders":
 							break;
 						case "header":
 							if (config && (config instanceof Array) && (header != null)) {
@@ -181,58 +181,58 @@ ModifyHeaders.ExportImport.ImportWizard = (function () {
 		},
 
 		showSelectHeaders: function () {
-			document.getElementById("select-headers-tree").view = ModifyHeaders.ExportImport.ImportWizard.selectHeadersTreeView;
-			ModifyHeaders.ExportImport.ImportWizard.headersSelected();
+			document.getElementById("select-headers-tree").view = ModifyResponseHeaders.ExportImport.ImportWizard.selectHeadersTreeView;
+			ModifyResponseHeaders.ExportImport.ImportWizard.headersSelected();
 		},
 		
 		selectAllHeaders: function (checkBox) {
-			for (var i = 0; i < ModifyHeaders.ExportImport.ImportWizard.importedConfig.length; i++) {
-				ModifyHeaders.ExportImport.ImportWizard.selectedRows[i] = !checkBox.checked;
+			for (var i = 0; i < ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig.length; i++) {
+				ModifyResponseHeaders.ExportImport.ImportWizard.selectedRows[i] = !checkBox.checked;
 			}
-			ModifyHeaders.ExportImport.wizard.canAdvance = !checkBox.checked;
+			ModifyResponseHeaders.ExportImport.wizard.canAdvance = !checkBox.checked;
 		},
 		
 		headersSelected: function () {
 			var trueCount = 0;
 			
-			for (var i = 0; i < ModifyHeaders.ExportImport.ImportWizard.importedConfig.length; i++) {
-				if (ModifyHeaders.ExportImport.ImportWizard.selectedRows[i]) {
+			for (var i = 0; i < ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig.length; i++) {
+				if (ModifyResponseHeaders.ExportImport.ImportWizard.selectedRows[i]) {
 					trueCount++;
 				}
 			}
-			ModifyHeaders.ExportImport.wizard.canAdvance = (trueCount > 0) ? true : false;
-			document.getElementById("select-all-headers").checked = (trueCount == ModifyHeaders.ExportImport.ImportWizard.importedConfig.length) ? true : false;
+			ModifyResponseHeaders.ExportImport.wizard.canAdvance = (trueCount > 0) ? true : false;
+			document.getElementById("select-all-headers").checked = (trueCount == ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig.length) ? true : false;
 		},
 		
 		selectHeadersTreeView: {
 	        selection: null,
 	        get rowCount() {
-	        	return ModifyHeaders.ExportImport.ImportWizard.importedConfig.length;
+	        	return ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig.length;
 	        },
 	        getCellText: function(row,column) {
 	        	if (column == "col-select" || column.id == "col-select") {
 	        		return "";
 	        	} else if (column == "col-action" || column.id == "col-action") {
-	        		return ModifyHeaders.ExportImport.ImportWizard.importedConfig[row].action;
+	        		return ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig[row].action;
 	            } else if (column == "col-header-name" || column.id == "col-header-name") {
-	        		return ModifyHeaders.ExportImport.ImportWizard.importedConfig[row].name;
+	        		return ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig[row].name;
 	            } else if (column == "col-header-value" || column.id == "col-header-value") {
-	        		return ModifyHeaders.ExportImport.ImportWizard.importedConfig[row].value;
+	        		return ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig[row].value;
 	            } else if (column == "col-comment" || column.id == "col-comment") {
-	        		return ModifyHeaders.ExportImport.ImportWizard.importedConfig[row].comment;
+	        		return ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig[row].comment;
 	            }
 	            return null;
 	        },
 	        getCellValue: function (row,column) {
 	        	if (column == "col-select" || column.id == "col-select") {
-	        		return ModifyHeaders.ExportImport.ImportWizard.selectedRows[row];
+	        		return ModifyResponseHeaders.ExportImport.ImportWizard.selectedRows[row];
 	        	}
 	        	return null;
 	        },
 	        setCellValue: function (row, column, value) {
 	        	if (column == "col-select" || column.id == "col-select") {
-	        		ModifyHeaders.ExportImport.ImportWizard.selectedRows[row] = (value == "false" ? false : true);
-	        		ModifyHeaders.ExportImport.ImportWizard.headersSelected();
+	        		ModifyResponseHeaders.ExportImport.ImportWizard.selectedRows[row] = (value == "false" ? false : true);
+	        		ModifyResponseHeaders.ExportImport.ImportWizard.headersSelected();
 	        	}
 	        },
 	        setTree: function(treebox) { this.treeBox = treebox; },
@@ -257,8 +257,8 @@ ModifyHeaders.ExportImport.ImportWizard = (function () {
 		
 		showConfirm: function () {
 			var count = 0;
-			for (var i = 0; i < ModifyHeaders.ExportImport.ImportWizard.importedConfig.length; i++) {
-				if (ModifyHeaders.ExportImport.ImportWizard.selectedRows[i]) {
+			for (var i = 0; i < ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig.length; i++) {
+				if (ModifyResponseHeaders.ExportImport.ImportWizard.selectedRows[i]) {
 					count++;
 				}
 			}
@@ -280,22 +280,22 @@ ModifyHeaders.ExportImport.ImportWizard = (function () {
 				exportHeadersJson = "",
 				count = 0;
 			
-			var headers = JSON.parse(ModifyHeaders.ExportImport.modifyheadersService.getHeaders());
+			var headers = JSON.parse(ModifyResponseHeaders.ExportImport.modifyresponseheadersService.getHeaders());
 			
-			for (var i = 0; i < ModifyHeaders.ExportImport.ImportWizard.importedConfig.length; i++) {
+			for (var i = 0; i < ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig.length; i++) {
 				// If selected, get the header from the importedConfig
-				if (ModifyHeaders.ExportImport.ImportWizard.selectedRows[i]) {
+				if (ModifyResponseHeaders.ExportImport.ImportWizard.selectedRows[i]) {
 					var header = {
-						action  : ModifyHeaders.ExportImport.ImportWizard.importedConfig[i].action,
-						name    : ModifyHeaders.ExportImport.ImportWizard.importedConfig[i].name,
-						value   : ModifyHeaders.ExportImport.ImportWizard.importedConfig[i].value,
-						comment : ModifyHeaders.ExportImport.ImportWizard.importedConfig[i].comment
+						action  : ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig[i].action,
+						name    : ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig[i].name,
+						value   : ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig[i].value,
+						comment : ModifyResponseHeaders.ExportImport.ImportWizard.importedConfig[i].comment
 					};
 					headers.push(header);
 					count++;
 				}
 			}
-			ModifyHeaders.ExportImport.modifyheadersService.saveHeaders(JSON.stringify(headers));
+			ModifyResponseHeaders.ExportImport.modifyresponseheadersService.saveHeaders(JSON.stringify(headers));
 			this.retVal.importedHeaderCount = count;
 		}
 	}

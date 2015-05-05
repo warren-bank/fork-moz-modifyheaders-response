@@ -8,19 +8,19 @@ content	modify-response-headers	chrome/content/
 locale	modify-response-headers	en-US	chrome/locale/en-US/
 
 interfaces components/mhIHeader.xpt
-interfaces components/nsIModifyheaders.xpt
+interfaces components/nsIModifyResponseHeaders.xpt
 
-component {f76b2347-aea1-483d-861b-06b392bfa38f} components/modifyheaders-service.js
-contract @modifyheaders.mozdev.org/response/header;1 {f76b2347-aea1-483d-861b-06b392bfa38f}
+component {f76b2347-aea1-483d-861b-06b392bfa38f} components/modifyresponseheaders-service.js
+contract @modifyresponseheaders.mozdev.org/header;1 {f76b2347-aea1-483d-861b-06b392bfa38f}
 
-component {1bb30833-e65f-492a-b8eb-9422b69716c7} components/modifyheaders-service.js
-contract @modifyheaders.mozdev.org/response/service;1 {1bb30833-e65f-492a-b8eb-9422b69716c7}
+component {1bb30833-e65f-492a-b8eb-9422b69716c7} components/modifyresponseheaders-service.js
+contract @modifyresponseheaders.mozdev.org/service;1 {1bb30833-e65f-492a-b8eb-9422b69716c7}
 
-component {c5c58352-a576-4c0b-bb27-b4a860c6689f} components/modifyheaders-service.js
-contract @modifyheaders.mozdev.org/response/proxy;1 {c5c58352-a576-4c0b-bb27-b4a860c6689f}
+component {c5c58352-a576-4c0b-bb27-b4a860c6689f} components/modifyresponseheaders-service.js
+contract @modifyresponseheaders.mozdev.org/proxy;1 {c5c58352-a576-4c0b-bb27-b4a860c6689f}
 
 # The category registration is required for the Proxy service
-category profile-after-change ModifyHeadersProxy @modifyheaders.mozdev.org/response/proxy;1
+category profile-after-change ModifyResponseHeadersProxy @modifyresponseheaders.mozdev.org/proxy;1
 
-component {d5f398ce-f73b-4ccc-8601-edbeb4a4d8a9} components/modifyheaders-autocomplete.js
-contract @mozilla.org/autocomplete/response/search;1?name=modifyheaders-autocomplete {d5f398ce-f73b-4ccc-8601-edbeb4a4d8a9}
+component {d5f398ce-f73b-4ccc-8601-edbeb4a4d8a9} components/modifyresponseheaders-autocomplete.js
+contract @mozilla.org/autocomplete/search;1?name=modifyresponseheaders-autocomplete {d5f398ce-f73b-4ccc-8601-edbeb4a4d8a9}

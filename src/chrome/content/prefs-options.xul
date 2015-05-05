@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
-<!DOCTYPE page SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
-<overlay id="modifyheaders-options-overlay"
+<!DOCTYPE page SYSTEM "chrome://modify-response-headers/locale/modifyresponseheaders.dtd">
+<overlay id="modifyresponseheaders-options-overlay"
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   
-  <prefpane id="paneOptions" label="&modifyheaders.label.options;">
+  <prefpane id="paneOptions" label="&modifyresponseheaders.label.options;">
     <preferences>
       <preference id="open-as-tab" name="modify-response-headers.config.openNewTab" type="bool" />
     </preferences>
 
     <groupbox>
-      <caption label="&modifyheaders.caption.options.general;"/>
-      <checkbox id="modifyheaders-open-as-tab" label="&modifyheaders.label.options.openintab;" preference="open-as-tab" />
+      <caption label="&modifyresponseheaders.caption.options.general;"/>
+      <checkbox id="modifyresponseheaders-open-as-tab" label="&modifyresponseheaders.label.options.openintab;" preference="open-as-tab" />
     </groupbox>
 
     <groupbox flex="1">
-      <caption label="&modifyheaders.caption.options.export-import;"/>
+      <caption label="&modifyresponseheaders.caption.options.export-import;"/>
       <hbox>
-        <button id="exportButton" label="&modifyheaders.button.export;"
-          oncommand="ModifyHeaders.Preferences.openExportWizard()" />
-        <button id="importButton" label="&modifyheaders.button.import;"
-          oncommand="ModifyHeaders.Preferences.openImportWizard()" />
+        <button id="exportButton" label="&modifyresponseheaders.button.export;"
+          oncommand="ModifyResponseHeaders.Preferences.openExportWizard()" />
+        <button id="importButton" label="&modifyresponseheaders.button.import;"
+          oncommand="ModifyResponseHeaders.Preferences.openImportWizard()" />
       </hbox>
     </groupbox>
   </prefpane>

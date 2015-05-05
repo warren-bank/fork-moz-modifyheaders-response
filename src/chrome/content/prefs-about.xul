@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
-<!DOCTYPE page SYSTEM "chrome://modify-response-headers/locale/modifyheaders.dtd">
-<overlay id="modifyheaders-about-overlay"
+<!DOCTYPE page SYSTEM "chrome://modify-response-headers/locale/modifyresponseheaders.dtd">
+<overlay id="modifyresponseheaders-about-overlay"
   xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   
   <prefpane id="paneAbout" label="About">
     <preferences/>
     
     <groupbox>
-      <caption>&modifyheaders.caption.about;</caption>
+      <caption>&modifyresponseheaders.caption.about;</caption>
       <hbox>
         <vbox>
           <image src="chrome://modify-response-headers/content/icons/star.png" />
         </vbox>
         <separator orient="vertical"/>
         <vbox>
-          <description class="title">&modifyheaders.label.version;: &modifyheaders.extension.version;</description>
-          <description class="title">&modifyheaders.label.author;: &modifyheaders.author.name;</description>
+          <description class="title">&modifyresponseheaders.label.version;: &modifyresponseheaders.extension.version;</description>
+          <description class="title">&modifyresponseheaders.label.author;: &modifyresponseheaders.author.name;</description>
         </vbox>
       </hbox>
       
@@ -26,8 +26,8 @@
         </vbox>
         <separator orient="vertical"/>
         <vbox>
-          <description value="&modifyheaders.label.homepage;" class="title"/>
-          <label class="text-link" href="&modifyheaders.url.homepage.v;" value="&modifyheaders.url.homepage;"/>
+          <description value="&modifyresponseheaders.label.homepage;" class="title"/>
+          <label class="text-link" href="&modifyresponseheaders.url.homepage.v;" value="&modifyresponseheaders.url.homepage;"/>
         </vbox>
       </hbox>
       
@@ -38,8 +38,8 @@
         </vbox>
         <separator orient="vertical"/>
         <vbox>
-          <description class="title">&modifyheaders.label.defects.description;</description>
-          <label class="text-link" href="&modifyheaders.url.defects.v;" value="&modifyheaders.url.defects;"/>
+          <description class="title">&modifyresponseheaders.label.defects.description;</description>
+          <label class="text-link" href="&modifyresponseheaders.url.defects.v;" value="&modifyresponseheaders.url.defects;"/>
         </vbox>
       </hbox>
       
@@ -50,40 +50,40 @@
         </vbox>
         <separator orient="vertical"/>
         <vbox>
-          <description class="title">&modifyheaders.label.twitter.description;</description>
-          <label class="text-link" href="&modifyheaders.url.twitter;" value="&modifyheaders.url.twitter;"/>
+          <description class="title">&modifyresponseheaders.label.twitter.description;</description>
+          <label class="text-link" href="&modifyresponseheaders.url.twitter;" value="&modifyresponseheaders.url.twitter;"/>
         </vbox>
       </hbox>
     </groupbox>
     
     <groupbox>
-      <caption>&modifyheaders.caption.contribute;</caption>
+      <caption>&modifyresponseheaders.caption.contribute;</caption>
       <hbox>
         <vbox>
           <image src="chrome://modify-response-headers/content/icons/thumbs-up.png" />
         </vbox>
         <separator orient="vertical"/>
         <vbox>
-          <description class="title">&modifyheaders.label.contribute.description;</description>
-          <label class="text-link" href="&modifyheaders.url.contribute;" value="&modifyheaders.label.contribute;"/>
+          <description class="title">&modifyresponseheaders.label.contribute.description;</description>
+          <label class="text-link" href="&modifyresponseheaders.url.contribute;" value="&modifyresponseheaders.label.contribute;"/>
         </vbox>
       </hbox>
     </groupbox>
 
     <groupbox>
-      <caption>&modifyheaders.caption.thankyou;</caption>
+      <caption>&modifyresponseheaders.caption.thankyou;</caption>
       <hbox>
         <vbox>
           <image src="chrome://modify-response-headers/content/icons/badge.png" />
         </vbox>
         <separator orient="vertical"/>
         <vbox>
-          <description class="title">&modifyheaders.label.logo.description;</description>
-          <label class="text-link" href="&modifyheaders.url.logo;" value="&modifyheaders.label.logo;"/>
+          <description class="title">&modifyresponseheaders.label.logo.description;</description>
+          <label class="text-link" href="&modifyresponseheaders.url.logo;" value="&modifyresponseheaders.label.logo;"/>
           <separator orient="horizontal"/>
-          <description class="title">&modifyheaders.label.icons.description;</description>
-          <label class="text-link" href="&modifyheaders.url.icons1;" value="&modifyheaders.label.icons1;"/>
-          <label class="text-link" href="&modifyheaders.url.icons2;" value="&modifyheaders.label.icons2;"/>
+          <description class="title">&modifyresponseheaders.label.icons.description;</description>
+          <label class="text-link" href="&modifyresponseheaders.url.icons1;" value="&modifyresponseheaders.label.icons1;"/>
+          <label class="text-link" href="&modifyresponseheaders.url.icons2;" value="&modifyresponseheaders.label.icons2;"/>
         </vbox>
       </hbox>
     </groupbox>

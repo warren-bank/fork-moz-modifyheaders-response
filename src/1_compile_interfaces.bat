@@ -19,5 +19,5 @@ set TPL_SRC=interface
 set TPL_TRG=components
 
 @echo on
-%XPIDL_EXE% -m typelib -v -I %XPIDL_INC% -w -o %TPL_TRG%/nsIModifyheaders %TPL_SRC%/nsIModifyheaders.idl
+%XPIDL_EXE% -m typelib -v -I %XPIDL_INC% -w -o %TPL_TRG%/nsIModifyResponseHeaders %TPL_SRC%/nsIModifyResponseHeaders.idl
 %XPIDL_EXE% -m typelib -v -I %XPIDL_INC% -w -o %TPL_TRG%/mhIHeader %TPL_SRC%/mhIHeader.idl

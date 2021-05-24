@@ -4,7 +4,7 @@ var localeFlag          = LOCALE | PROFILE_CHROME;
 var skinFlag            = SKIN | PROFILE_CHROME;
 
 var displayName         = "Modify Response Headers";
-var version             = "v0.7.1.1_response_v1.05";
+var version             = "v0.7.1.1_response_v1.06";
 
 var name                = "modify-response-headers";
 var jarName             = name + ".jar";

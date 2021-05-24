@@ -14,17 +14,26 @@
         <em:name>Modify Response Headers</em:name>
         <em:optionsURL>chrome://modify-response-headers/content/preferences.xul</em:optionsURL>
         <em:type>2</em:type>
-        <em:version>v0.7.1.1_response_v1.05</em:version>
-        
-        <!-- Firefox 4.0 - 9.0 -->
+        <em:version>v0.7.1.1_response_v1.06</em:version>
+
+        <!-- Firefox -->
         <em:targetApplication>
             <Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
                 <em:minVersion>4.0</em:minVersion>
-                <em:maxVersion>9.*</em:maxVersion>
+                <em:maxVersion>56.0.2</em:maxVersion>
             </Description>
         </em:targetApplication>
-        
+
+        <!-- Pale Moon -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
+                <em:minVersion>4.0</em:minVersion>
+                <em:maxVersion>9999.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+
         <!-- Seamonkey 2.0 -->
         <!--<em:targetApplication>
             <Description>
